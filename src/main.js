@@ -88,7 +88,7 @@ function renderFilters(items) {
           data-filter="${item.filter}"
           data-value="${item.name}"
         >
-          ${item.name}
+          ${capitalizeFirstLetter(item.name)}
         </button>
       `
     )
@@ -190,7 +190,7 @@ function renderExercises(items) {
     </button>
   </div>
 
-  <h3 class="exercise-card__title">${item.name}</h3>
+  <h3 class="exercise-card__title">${capitalizeFirstLetter(item.name)}</h3>
 
   <p class="exercise-card__info">
     Burned calories: ${item.burnedCalories} / ${item.time} min ·
@@ -243,18 +243,24 @@ function renderExerciseModal(item) {
   img.src = item.gifUrl;
   img.alt = item.name;
 
-  modalEl.querySelector('.modal-title').textContent = item.name;
+  modalEl.querySelector('.modal-title').textContent = capitalizeFirstLetter(item.name) || item.name;
   modalEl.querySelector('.modal-description').textContent =
-    item.description;
+    capitalizeFirstLetter(item.description) || item.description;
 
   modalEl.querySelector('.modal-bodypart').textContent =
-    item.bodyPart;
+    capitalizeFirstLetter(item.bodyPart) || item.bodyPart;
 
   modalEl.querySelector('.modal-equipment').textContent =
-    item.equipment;
+    capitalizeFirstLetter(item.equipment) || item.equipment;
+  modalEl.querySelector('.modal-calories').textContent =
+  item.burnedCalories;
 
   modalEl.querySelector('.modal-target').textContent =
-    item.target;
+    capitalizeFirstLetter(item.target) || item.target;
+  modalEl.querySelector('.modal-popularity').textContent =
+    item.popularity;
+  modalEl.querySelector('.modal-time').textContent =
+  `${item.time} min`;
 
   modalEl.querySelector('.modal-rating').innerHTML = `
   <span class="modal__rating-value">${item.rating.toFixed(1)}</span>
@@ -347,6 +353,10 @@ ratingForm.addEventListener('submit', async event => {
   }
 });
 
+function capitalizeFirstLetter(value) {
+  if (!value) return '';
+  return value.charAt(0).toUpperCase() + value.slice(1);
+}
 
 const searchForm = document.querySelector('.search-form');
 
