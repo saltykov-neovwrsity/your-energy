@@ -1,3 +1,5 @@
+let currentExerciseId = null;
+
 const QUOTE_URL = 'https://your-energy.b.goit.study/api/quote';
 
 async function fetchQuote() {
@@ -174,6 +176,7 @@ exercisesListEl.addEventListener('click', event => {
 
 async function fetchExerciseById(id) {
   try {
+    currentExerciseId = id;
     const response = await fetch(
       `https://your-energy.b.goit.study/api/exercises/${id}`
     );
@@ -189,6 +192,8 @@ async function fetchExerciseById(id) {
     console.error(error);
   }
 }
+
+
 
 function renderExerciseModal(item) {
   modalEl.querySelector('.modal-gif').src = item.gifUrl;
@@ -217,5 +222,57 @@ modalEl.addEventListener('click', event => {
     event.target.classList.contains('modal-close')
   ) {
     closeModal();
+  }
+});
+
+
+async function sendExerciseRating(id, ratingData) {
+  try {
+    const response = await fetch(
+      `https://your-energy.b.goit.study/api/exercises/${id}/rating`,
+      {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(ratingData),
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error('Failed to send rating');
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+const ratingForm = document.querySelector('.rating-form');
+
+ratingForm.addEventListener('submit', async event => {
+  event.preventDefault();
+
+  const formData = new FormData(event.target);
+
+  const payload = {
+    rate: Number(formData.get('rate')),
+    email: formData.get('email'),
+    review: formData.get('review') || '',
+  };
+
+  const updatedExercise = await sendExerciseRating(
+    currentExerciseId,
+    payload
+  );
+
+  if (updatedExercise) {
+    // оновлюємо рейтинг у модалці
+    modalEl.querySelector('.modal-rating').textContent =
+      updatedExercise.rating;
+
+    event.target.reset();
   }
 });
