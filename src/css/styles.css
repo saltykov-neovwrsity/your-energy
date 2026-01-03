@@ -16,3 +16,65 @@
 @import url('./badges.css');
 @import url('./back-link.css');
 @import url('./footer.css');
+
+/* ===== Layout base ===== */
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.main-layout {
+  display: flex;
+  gap: 32px;
+}
+
+/* Left column */
+.sidebar {
+  width: 320px;
+  flex-shrink: 0;
+}
+
+/* Right column */
+.content {
+  flex: 1;
+}
+
+/* Sections spacing */
+.quote,
+.subscription,
+.filters,
+.exercises,
+.pagination {
+  margin-bottom: 24px;
+}
+
+/* Modal (поки просто заглушка) */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.modal.is-hidden {
+  display: none;
+}
+
+.filters-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.filter-tab {
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  background: transparent;
+  cursor: pointer;
+}
+
+.filter-tab.is-active {
+  border-color: #000;
+  font-weight: 600;
+}
