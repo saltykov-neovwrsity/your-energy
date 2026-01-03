@@ -1,5 +1,7 @@
 let currentExerciseId = null;
 let selectedCategory = null;
+let currentPage = 1;
+let totalPages = 1;
 
 const QUOTE_URL = 'https://your-energy.b.goit.study/api/quote';
 
@@ -111,9 +113,14 @@ filtersContentEl.addEventListener('click', event => {
 
 const EXERCISES_URL = 'https://your-energy.b.goit.study/api/exercises';
 
-async function fetchExercisesByCategory(filterType, value) {
+async function fetchExercisesByCategory(filterType, value, page = 1) {
   try {
-    const params = new URLSearchParams();
+    currentPage = page;
+
+    const params = new URLSearchParams({
+      page,
+      limit: 6,
+    });
 
     if (filterType === 'Muscles') {
       params.append('muscles', value);
@@ -127,21 +134,25 @@ async function fetchExercisesByCategory(filterType, value) {
       params.append('equipment', value);
     }
 
-    params.append('page', 1);
-    params.append('limit', 6);
-
-    const response = await fetch(`${EXERCISES_URL}?${params.toString()}`);
+    const response = await fetch(
+      `${EXERCISES_URL}?${params.toString()}`
+    );
 
     if (!response.ok) {
       throw new Error('Failed to fetch exercises');
     }
 
     const data = await response.json();
+
+    totalPages = data.totalPages;
+
     renderExercises(data.results);
+    renderPagination();
   } catch (error) {
     console.error(error);
   }
 }
+
 
 function renderExercises(items) {
   const list = document.querySelector('.exercises-list');
@@ -292,16 +303,15 @@ searchForm.addEventListener('submit', event => {
   fetchExercisesByKeyword(keyword);
 });
 
-async function fetchExercisesByKeyword(keyword) {
-  if (!selectedCategory) {
-    console.warn('Select a filter category before searching');
-    return;
-  }
+async function fetchExercisesByKeyword(keyword, page = 1) {
+  if (!selectedCategory) return;
 
   try {
+    currentPage = page;
+
     const params = new URLSearchParams({
       keyword,
-      page: 1,
+      page,
       limit: 6,
     });
 
@@ -323,6 +333,7 @@ async function fetchExercisesByKeyword(keyword) {
 
     if (response.status === 409) {
       renderExercises([]);
+      renderPagination(0);
       return;
     }
 
@@ -331,11 +342,58 @@ async function fetchExercisesByKeyword(keyword) {
     }
 
     const data = await response.json();
+
+    totalPages = data.totalPages;
+
     renderExercises(data.results);
+    renderPagination(keyword);
   } catch (error) {
     console.error(error);
   }
 }
+
+function renderPagination(keyword = null) {
+  const list = document.querySelector('.pagination-list');
+  if (!list) return;
+
+  if (totalPages <= 1) {
+    list.innerHTML = '';
+    return;
+  }
+
+  list.innerHTML = Array.from(
+    { length: totalPages },
+    (_, index) => {
+      const page = index + 1;
+      return `
+        <li>
+          <button 
+            class="pagination-btn ${page === currentPage ? 'is-active' : ''}"
+            data-page="${page}"
+            ${page === currentPage ? 'disabled' : ''}
+          >
+            ${page}
+          </button>
+        </li>
+      `;
+    }
+  ).join('');
+}
+
+const paginationEl = document.querySelector('.pagination-list');
+
+paginationEl.addEventListener('click', event => {
+  const button = event.target.closest('.pagination-btn');
+  if (!button) return;
+
+  const page = Number(button.dataset.page);
+
+  if (searchForm.keyword?.value) {
+    fetchExercisesByKeyword(searchForm.keyword.value, page);
+  } else {
+    fetchExercisesByCategory(activeFilter, selectedCategory, page);
+  }
+});
 
 
 
