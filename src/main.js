@@ -1,4 +1,5 @@
 let currentExerciseId = null;
+let selectedCategory = null;
 
 const QUOTE_URL = 'https://your-energy.b.goit.study/api/quote';
 
@@ -103,7 +104,7 @@ filtersContentEl.addEventListener('click', event => {
   if (!button) return;
 
   const value = button.dataset.value;
-
+  selectedCategory = button.dataset.value;
   fetchExercisesByCategory(activeFilter, value);
 });
 
@@ -276,3 +277,66 @@ ratingForm.addEventListener('submit', async event => {
     event.target.reset();
   }
 });
+
+
+const searchForm = document.querySelector('.search-form');
+
+searchForm.addEventListener('submit', event => {
+  event.preventDefault();
+
+  const formData = new FormData(event.target);
+  const keyword = formData.get('keyword').trim();
+
+  if (!keyword) return;
+
+  fetchExercisesByKeyword(keyword);
+});
+
+async function fetchExercisesByKeyword(keyword) {
+  if (!selectedCategory) {
+    console.warn('Select a filter category before searching');
+    return;
+  }
+
+  try {
+    const params = new URLSearchParams({
+      keyword,
+      page: 1,
+      limit: 6,
+    });
+
+    if (activeFilter === 'Muscles') {
+      params.append('muscles', selectedCategory);
+    }
+
+    if (activeFilter === 'Body parts') {
+      params.append('bodypart', selectedCategory);
+    }
+
+    if (activeFilter === 'Equipment') {
+      params.append('equipment', selectedCategory);
+    }
+
+    const response = await fetch(
+      `${EXERCISES_URL}?${params.toString()}`
+    );
+
+    if (response.status === 409) {
+      renderExercises([]);
+      return;
+    }
+
+    if (!response.ok) {
+      throw new Error('Failed to fetch exercises by keyword');
+    }
+
+    const data = await response.json();
+    renderExercises(data.results);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+
+
+
