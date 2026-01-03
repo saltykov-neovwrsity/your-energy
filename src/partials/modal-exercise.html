@@ -68,3 +68,32 @@
     </div>
   </div>
 </div>
+
+
+<div class="rating-modal is-hidden">
+  <div class="rating-modal__backdrop"></div>
+
+  <div class="rating-modal__content">
+    <button class="rating-modal__close">×</button>
+
+    <p class="rating-modal__label">Rating</p>
+
+    <div class="rating-modal__stars" data-value="0">
+      <button type="button" data-star="1">★</button>
+      <button type="button" data-star="2">★</button>
+      <button type="button" data-star="3">★</button>
+      <button type="button" data-star="4">★</button>
+      <button type="button" data-star="5">★</button>
+    </div>
+
+    <form class="rating-modal__form">
+      <input class="rating-modal__input" type="email" name="email" placeholder="Email" required />
+
+      <textarea class="rating-modal__textarea" name="review" placeholder="Your comment" rows="3"></textarea>
+
+      <button class="rating-modal__submit" type="submit">
+        Send
+      </button>
+    </form>
+  </div>
+</div>
