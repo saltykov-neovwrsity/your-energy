@@ -153,18 +153,18 @@ async function fetchExercisesByCategory(filterType, value, page = 1) {
   }
 }
 
-function renderStars(rating) {
-  const fullStars = Math.round(rating);
-  const maxStars = 5;
+// function renderStars(rating) {
+//   const fullStars = Math.round(rating);
+//   const maxStars = 5;
 
-  return Array.from({ length: maxStars }, (_, index) => {
-    return `
-      <span class="star ${index < fullStars ? 'star-filled' : ''}">
-        ★
-      </span>
-    `;
-  }).join('');
-}
+//   return Array.from({ length: maxStars }, (_, index) => {
+//     return `
+//       <span class="star ${index < fullStars ? 'star-filled' : ''}">
+//         ★
+//       </span>
+//     `;
+//   }).join('');
+// }
 
 
 
@@ -256,8 +256,20 @@ function renderExerciseModal(item) {
   modalEl.querySelector('.modal-target').textContent =
     item.target;
 
-  modalEl.querySelector('.modal-rating').textContent =
-    `${item.rating.toFixed(1)} ★`;
+  modalEl.querySelector('.modal-rating').innerHTML = `
+  <span class="modal__rating-value">${item.rating.toFixed(1)}</span>
+  <div class="modal__stars">
+    ${renderStars(item.rating)}
+  </div>
+`;
+}
+
+function renderStars(rating) {
+  const rounded = Math.round(rating);
+
+  return Array.from({ length: 5 }, (_, i) =>
+    `<span class="modal__star ${i < rounded ? 'is-active' : ''}">★</span>`
+  ).join('');
 }
 
 
@@ -280,6 +292,7 @@ modalEl.addEventListener('click', e => {
     closeModal();
   }
 });
+
 
 
 

@@ -256,9 +256,9 @@
    IMAGE
 ========================= */
 .modal__image {
-  background-color: #f4f4f4;
-  border-radius: 12px;
-  padding: 16px;
+  background: none;
+  border-radius: 0;
+  padding: 0;
 
   display: flex;
   align-items: center;
@@ -267,7 +267,8 @@
 
 .modal-gif {
   max-width: 100%;
-  max-height: 100%;
+  max-height: 360px;
+  object-fit: contain;
 }
 
 /* =========================
@@ -277,6 +278,7 @@
   color: #ffffff;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .modal-title {
@@ -287,8 +289,28 @@
 
 /* Rating */
 .modal__rating {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.modal__rating-value {
   font-size: 14px;
-  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.modal__stars {
+  display: flex;
+  gap: 4px;
+}
+
+.modal__star {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.modal__star.is-active {
+  color: #eea10c;
 }
 
 /* =========================
@@ -297,21 +319,18 @@
 .modal__meta {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  margin-bottom: 16px;
-  padding: 0;
-  list-style: none;
+  gap: 16px;
 }
 
 .modal__meta span {
-  display: block;
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255,255,255,0.4);
 }
 
 .modal__meta strong {
   font-size: 14px;
   font-weight: 500;
+  color: #ffffff;
 }
 
 /* =========================
@@ -320,8 +339,14 @@
 .modal-description {
   font-size: 14px;
   line-height: 1.4;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.7);
   margin-bottom: auto;
+}
+
+.modal__divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  margin: 16px 0;
 }
 
 /* =========================
