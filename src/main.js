@@ -93,3 +93,72 @@ function renderFilters(items) {
 
 
 fetchFilters(activeFilter);
+
+const filtersContentEl = document.querySelector('.filters-content');
+
+filtersContentEl.addEventListener('click', event => {
+  const button = event.target.closest('.filter-item');
+  if (!button) return;
+
+  const value = button.dataset.value;
+
+  fetchExercisesByCategory(activeFilter, value);
+});
+
+
+const EXERCISES_URL = 'https://your-energy.b.goit.study/api/exercises';
+
+async function fetchExercisesByCategory(filterType, value) {
+  try {
+    const params = new URLSearchParams();
+
+    if (filterType === 'Muscles') {
+      params.append('muscles', value);
+    }
+
+    if (filterType === 'Body parts') {
+      params.append('bodypart', value);
+    }
+
+    if (filterType === 'Equipment') {
+      params.append('equipment', value);
+    }
+
+    params.append('page', 1);
+    params.append('limit', 6);
+
+    const response = await fetch(`${EXERCISES_URL}?${params.toString()}`);
+
+    if (!response.ok) {
+      throw new Error('Failed to fetch exercises');
+    }
+
+    const data = await response.json();
+    renderExercises(data.results);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function renderExercises(items) {
+  const list = document.querySelector('.exercises-list');
+  if (!list) return;
+
+  if (!Array.isArray(items)) {
+    console.error('renderExercises expected array, got:', items);
+    return;
+  }
+
+  list.innerHTML = items
+    .map(
+      item => `
+        <li class="exercise-card">
+          <img src="${item.gifUrl}" alt="${item.name}" width="200" />
+          <h3>${item.name}</h3>
+          <p>Target: ${item.target}</p>
+          <p>Rating: ${item.rating}</p>
+        </li>
+      `
+    )
+    .join('');
+}
