@@ -144,11 +144,6 @@ function renderExercises(items) {
   const list = document.querySelector('.exercises-list');
   if (!list) return;
 
-  if (!Array.isArray(items)) {
-    console.error('renderExercises expected array, got:', items);
-    return;
-  }
-
   list.innerHTML = items
     .map(
       item => `
@@ -157,8 +152,70 @@ function renderExercises(items) {
           <h3>${item.name}</h3>
           <p>Target: ${item.target}</p>
           <p>Rating: ${item.rating}</p>
+          <button class="start-btn" data-id="${item._id}">
+            Start
+          </button>
         </li>
       `
     )
     .join('');
 }
+
+const exercisesListEl = document.querySelector('.exercises-list');
+const modalEl = document.querySelector('.modal');
+
+exercisesListEl.addEventListener('click', event => {
+  const button = event.target.closest('.start-btn');
+  if (!button) return;
+
+  const exerciseId = button.dataset.id;
+  fetchExerciseById(exerciseId);
+});
+
+async function fetchExerciseById(id) {
+  try {
+    const response = await fetch(
+      `https://your-energy.b.goit.study/api/exercises/${id}`
+    );
+
+    if (!response.ok) {
+      throw new Error('Failed to fetch exercise');
+    }
+
+    const data = await response.json();
+    renderExerciseModal(data);
+    openModal();
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function renderExerciseModal(item) {
+  modalEl.querySelector('.modal-gif').src = item.gifUrl;
+  modalEl.querySelector('.modal-gif').alt = item.name;
+
+  modalEl.querySelector('.modal-title').textContent = item.name;
+  modalEl.querySelector('.modal-description').textContent = item.description;
+
+  modalEl.querySelector('.modal-bodypart').textContent = item.bodyPart;
+  modalEl.querySelector('.modal-equipment').textContent = item.equipment;
+  modalEl.querySelector('.modal-target').textContent = item.target;
+  modalEl.querySelector('.modal-rating').textContent = item.rating;
+}
+
+function openModal() {
+  modalEl.classList.remove('is-hidden');
+}
+
+function closeModal() {
+  modalEl.classList.add('is-hidden');
+}
+
+modalEl.addEventListener('click', event => {
+  if (
+    event.target.classList.contains('modal') ||
+    event.target.classList.contains('modal-close')
+  ) {
+    closeModal();
+  }
+});
