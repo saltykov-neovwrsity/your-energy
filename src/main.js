@@ -153,6 +153,20 @@ async function fetchExercisesByCategory(filterType, value, page = 1) {
   }
 }
 
+function renderStars(rating) {
+  const fullStars = Math.round(rating);
+  const maxStars = 5;
+
+  return Array.from({ length: maxStars }, (_, index) => {
+    return `
+      <span class="star ${index < fullStars ? 'star-filled' : ''}">
+        ★
+      </span>
+    `;
+  }).join('');
+}
+
+
 
 function renderExercises(items) {
   const list = document.querySelector('.exercises-list');
@@ -161,19 +175,36 @@ function renderExercises(items) {
   list.innerHTML = items
     .map(
       item => `
-        <li class="exercise-card">
-          <img src="${item.gifUrl}" alt="${item.name}" width="200" />
-          <h3>${item.name}</h3>
-          <p>Target: ${item.target}</p>
-          <p>Rating: ${item.rating}</p>
-          <button class="start-btn" data-id="${item._id}">
-            Start
-          </button>
-        </li>
+<li class="exercise-card">
+  <div class="exercise-card__header">
+    <div class="exercise-card__meta">
+      <span class="exercise-card__badge">WORKOUT</span>
+      <span class="exercise-card__rating">
+        ${item.rating.toFixed(1)}
+        <span class="exercise-card__star">★</span>
+      </span>
+    </div>
+
+    <button class="exercise-card__start start-btn" data-id="${item._id}">
+      Start →
+    </button>
+  </div>
+
+  <h3 class="exercise-card__title">${item.name}</h3>
+
+  <p class="exercise-card__info">
+    Burned calories: ${item.burnedCalories} / ${item.time} min ·
+    Body part: ${item.bodyPart} ·
+    Target: ${item.target}
+  </p>
+</li>
       `
     )
     .join('');
 }
+
+
+
 
 const exercisesListEl = document.querySelector('.exercises-list');
 const modalEl = document.querySelector('.modal');
@@ -208,34 +239,48 @@ async function fetchExerciseById(id) {
 
 
 function renderExerciseModal(item) {
-  modalEl.querySelector('.modal-gif').src = item.gifUrl;
-  modalEl.querySelector('.modal-gif').alt = item.name;
+  const img = modalEl.querySelector('.modal-gif');
+  img.src = item.gifUrl;
+  img.alt = item.name;
 
   modalEl.querySelector('.modal-title').textContent = item.name;
-  modalEl.querySelector('.modal-description').textContent = item.description;
+  modalEl.querySelector('.modal-description').textContent =
+    item.description;
 
-  modalEl.querySelector('.modal-bodypart').textContent = item.bodyPart;
-  modalEl.querySelector('.modal-equipment').textContent = item.equipment;
-  modalEl.querySelector('.modal-target').textContent = item.target;
-  modalEl.querySelector('.modal-rating').textContent = item.rating;
+  modalEl.querySelector('.modal-bodypart').textContent =
+    item.bodyPart;
+
+  modalEl.querySelector('.modal-equipment').textContent =
+    item.equipment;
+
+  modalEl.querySelector('.modal-target').textContent =
+    item.target;
+
+  modalEl.querySelector('.modal-rating').textContent =
+    `${item.rating.toFixed(1)} ★`;
 }
+
 
 function openModal() {
   modalEl.classList.remove('is-hidden');
+  document.body.style.overflow = 'hidden';
 }
 
 function closeModal() {
   modalEl.classList.add('is-hidden');
+  document.body.style.overflow = '';
 }
 
-modalEl.addEventListener('click', event => {
+
+modalEl.addEventListener('click', e => {
   if (
-    event.target.classList.contains('modal') ||
-    event.target.classList.contains('modal-close')
+    e.target.classList.contains('modal__backdrop') ||
+    e.target.classList.contains('modal__close')
   ) {
     closeModal();
   }
 });
+
 
 
 async function sendExerciseRating(id, ratingData) {
