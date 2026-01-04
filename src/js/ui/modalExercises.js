@@ -1,6 +1,8 @@
 import { getExerciseById } from '../api/exerciseByIdApi';
 import { renderExerciseModal } from '../render/renderExerciseModal';
 import { state } from './state';
+import { toggleFavorite } from '../utils/favoritesStorage';
+import { renderFavoriteButton } from '../render/renderFavoriteButton';
 
 const modalEl = document.querySelector('.modal');
 const exercisesListEl = document.querySelector('.exercises-list');
@@ -31,6 +33,14 @@ export function closeModal() {
 }
 
 modalEl.addEventListener('click', event => {
+  const favBtn = event.target.closest('.js-favorite-btn');
+
+  if (favBtn) {
+    toggleFavorite(state.currentExerciseId);
+    renderFavoriteButton(favBtn, state.currentExerciseId);
+    return;
+  }
+
   if (
     event.target.classList.contains('modal__backdrop') ||
     event.target.classList.contains('modal__close')
@@ -38,3 +48,4 @@ modalEl.addEventListener('click', event => {
     closeModal();
   }
 });
+

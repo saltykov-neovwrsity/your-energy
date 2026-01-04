@@ -1,0 +1,38 @@
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #F4F4F4;
+
+}
+
+.main-layout {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.sidebar {
+  width: 320px;
+  flex-shrink: 0;
+}
+
+.content {
+  flex: 1;
+}
+
+.quote,
+.subscription,
+.filters,
+.exercises,
+.pagination {
+  margin-bottom: 24px;
+}
+
+.is-hidden {
+  visibility: hidden;
+  pointer-events: none;
+  height: 0;
+  overflow: hidden;
+}

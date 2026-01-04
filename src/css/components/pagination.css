@@ -1,0 +1,18 @@
+.pagination-list {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.pagination-btn {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.pagination-btn.is-active {
+  border-color: #000;
+  font-weight: 600;
+}

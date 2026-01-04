@@ -1,0 +1,39 @@
+.quote {
+  margin-top: 90px;
+  background-color: #242424;
+  border-radius: 20px;
+  padding: 32px;
+  color: #ffffff;
+}
+
+/* Контент */
+.quote__content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Текст цитати */
+.quote__text {
+  font-size: 20px;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+/* Автор */
+.quote__author {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  align-self: flex-end;
+}
+
+/* ===== Mobile ===== */
+@media screen and (max-width: 767px) {
+  .quote {
+    padding: 24px;
+  }
+
+  .quote__text {
+    font-size: 16px;
+  }
+}

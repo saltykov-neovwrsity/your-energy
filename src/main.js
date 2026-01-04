@@ -5,6 +5,7 @@ import './js/ui/modalExercises';
 import './js/ui/rating';
 import './js/ui/search';
 import './js/ui/pagination';
+import './js/ui/subscribe';
 
 
 

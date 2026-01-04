@@ -1,5 +1,7 @@
 import { capitalizeFirstLetter } from '../utils/capitalizeFirstLetter';
 
+
+
 export function renderExercises(items) {
   const list = document.querySelector('.exercises-list');
   if (!list) return;

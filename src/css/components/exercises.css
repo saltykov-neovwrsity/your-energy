@@ -1,0 +1,83 @@
+.exercises-list {
+  display: grid;
+  grid-template-columns: repeat(2, 442px);
+  gap: 20px;
+}
+
+
+
+/**
+  |============================
+  | Exercise card
+  |============================
+*/
+
+.exercise-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Header row */
+.exercise-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Meta */
+.exercise-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.exercise-card__badge {
+  padding: 4px 10px;
+  border: 1px solid #242424;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.exercise-card__rating {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.exercise-card__star {
+  color: #eea10c;
+}
+
+/* Start button */
+.exercise-card__start {
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.exercise-card__start:hover {
+  background-color: #222;
+}
+
+/* Title */
+.exercise-card__title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #242424;
+}
+
+/* Info */
+.exercise-card__info {
+  font-size: 12px;
+  line-height: 1.4;
+  color: rgba(36, 36, 36, 0.4);
+}

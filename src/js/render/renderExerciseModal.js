@@ -1,5 +1,7 @@
 import { capitalizeFirstLetter } from '../utils/capitalizeFirstLetter';
 import { renderStars } from './renderStars';
+import { renderFavoriteButton } from './renderFavoriteButton';
+import { state } from '../ui/state';
 
 export function renderExerciseModal(modalEl, item) {
   const img = modalEl.querySelector('.modal-gif');
@@ -39,4 +41,7 @@ export function renderExerciseModal(modalEl, item) {
       ${renderStars(rating)}
     </div>
   `;
+  const favoriteBtn = modalEl.querySelector('.js-favorite-btn');
+
+  renderFavoriteButton(favoriteBtn, state.currentExerciseId);
 }

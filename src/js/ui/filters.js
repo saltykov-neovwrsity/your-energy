@@ -12,6 +12,9 @@ filtersEl.addEventListener('click', async event => {
 
   state.activeFilter = button.dataset.filter;
   updateActiveTab();
+  showFilters()
+  clearExercises();
+  hideSearch();
 
   try {
     const data = await getFilters(state.activeFilter);
@@ -26,11 +29,37 @@ filtersContentEl.addEventListener('click', event => {
   if (!button) return;
 
   state.selectedCategory = button.dataset.value;
-  fetchExercisesByCategory(
-    state.activeFilter,
-    state.selectedCategory
-  );
+
+  hideFilters();
+  showExercises();
+  showSearch();
+
+  fetchExercisesByCategory(state.activeFilter, state.selectedCategory);
 });
+
+function hideFilters() {
+  document.querySelector('.filters-content').classList.add('is-hidden');
+}
+
+function showFilters() {
+  document.querySelector('.filters-content').classList.remove('is-hidden');
+}
+
+function showExercises() {
+  document.querySelector('.exercises-list').classList.remove('is-hidden');
+}
+
+function clearExercises() {
+  document.querySelector('.exercises-list').classList.add('is-hidden');
+}
+
+function showSearch() {
+  document.querySelector('.search-form').classList.remove('is-hidden');
+}
+
+function hideSearch() {
+  document.querySelector('.search-form').classList.add('is-hidden');
+}
 
 function updateActiveTab() {
   document.querySelectorAll('.filter-tab').forEach(tab => {

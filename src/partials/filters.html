@@ -1,26 +1,29 @@
 <section class="filters">
-  <ul class="filters-tabs">
-    <li>
-      <button class="filter-tab is-active" data-filter="Muscles">
-        Muscles
-      </button>
-    </li>
-    <li>
-      <button class="filter-tab" data-filter="Body parts">
-        Body parts
-      </button>
-    </li>
-    <li>
-      <button class="filter-tab" data-filter="Equipment">
-        Equipment
-      </button>
-    </li>
-  </ul>
+  <div class="filters-top">
+    
+    <form class="search-form is-hidden">
+      <input type="text" name="keyword" placeholder="Search exercises..." autocomplete="off" />
+    </form>
+    <ul class="filters-tabs">
+      <li>
+        <button class="filter-tab is-active" data-filter="Muscles">
+          Muscles
+        </button>
+      </li>
+      <li>
+        <button class="filter-tab" data-filter="Body parts">
+          Body parts
+        </button>
+      </li>
+      <li>
+        <button class="filter-tab" data-filter="Equipment">
+          Equipment
+        </button>
+      </li>
+    </ul>
+  </div>
+    <!-- сюди пізніше підставимо категорії -->
+    <div class="filters-content"></div>
 
-  <!-- сюди пізніше підставимо категорії -->
-  <div class="filters-content"></div>
-
-  <form class="search-form">
-    <input type="text" name="keyword" placeholder="Search exercises..." autocomplete="off" />
-  </form>
+  
 </section>
