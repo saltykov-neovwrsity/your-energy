@@ -5,15 +5,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page 2</title>
-    <link rel="stylesheet" crossorigin href="/vanilla-app-template/assets/styles-DelPcFwY.css">
+    <link rel="stylesheet" crossorigin href="/vanilla-app-template/assets/styles-BzJ35Sba.css">
   </head>
   <body>
-    <header class="header">
+    
+<header class="header">
   <div class="container">
-    <h1>Get Body in shape, Stay healthy</h1>
+  <div class="container header__container">
+    <!-- LOGO -->
+    <a href="./index.html" class="header__logo">
+      YOUR ENERGY
+    </a>
+
+    <!-- NAVIGATION -->
+    <nav class="header__nav">
+      <ul class="header__nav-list">
+        <li>
+          <a href="./index.html" class="header__nav-link is-active">
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="#" class="header__nav-link">
+            Favorites
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- SOCIAL -->
+    <ul class="header__socials">
+      <li>
+        <a href="#" aria-label="Facebook" class="header__social-link">
+          f
+        </a>
+      </li>
+      <li>
+        <a href="#" aria-label="Instagram" class="header__social-link">
+          i
+        </a>
+      </li>
+      <li>
+        <a href="#" aria-label="YouTube" class="header__social-link">
+          y
+        </a>
+      </li>
+    </ul>
+  </div>
   </div>
 </header>
-
 
     <main>
       <div class="container">
@@ -26,20 +66,40 @@
     </main>
 
     <footer class="footer">
-  <div class="container">
-    <p class="footer-desc">
-      Made with ✨ by
-      <a
-        class="footer-link"
-        href="https://goit.global/ua/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        GoIT team
-      </a>
-    </p>
+  <div class="container footer__container">
+    <!-- LEFT -->
+    <div class="footer__brand">
+      <p class="footer__logo">YOUR ENERGY</p>
+
+      <p class="footer__text">
+        Transforming your body shape with us
+      </p>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="footer__subscribe">
+      <p class="footer__subtitle">
+        Subscribe and learn about new exercises!
+      </p>
+
+      <form class="footer__form">
+        <input type="email" class="subscription__input" placeholder="Email"  name="email" required />
+        <button type="submit" class="subscription__button">
+          Send
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <p>©2023 Your Energy. All rights reserved.</p>
+
+    <div class="footer__links">
+      <a href="#">Privacy Policy</a>
+      <span>/</span>
+      <a href="#">Terms of Service</a>
+    </div>
   </div>
 </footer>
-
   </body>
 </html>
