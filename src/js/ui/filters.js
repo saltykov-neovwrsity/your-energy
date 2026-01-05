@@ -1,7 +1,9 @@
 import { getFilters } from '../api/filtersApi';
 import { renderFilters } from '../render/renderFilters';
+import { renderPagination } from '../render/renderPagination';
 import { fetchExercisesByCategory } from './exercises';
 import { state } from './state';
+
 
 const filtersEl = document.querySelector('.filters');
 const filtersContentEl = document.querySelector('.filters-content');
@@ -72,5 +74,25 @@ function updateActiveTab() {
 
 (async function initFilters() {
   const data = await getFilters(state.activeFilter);
-  renderFilters(data.results);
+  state.filters = data.results;
+  state.filtersPage = 1;
+
+  renderFiltersPage();
+
 })();
+
+export function renderFiltersPage() {
+  const start = (state.filtersPage - 1) * state.filtersPerPage;
+  const end = start + state.filtersPerPage;
+
+  const pageItems = state.filters.slice(start, end);
+
+  renderFilters(pageItems);
+
+  state.totalPages = Math.ceil(
+    state.filters.length / state.filtersPerPage
+  );
+
+  state.currentPage = state.filtersPage;
+  renderPagination();
+}

@@ -72,7 +72,7 @@
 
 .filters-content {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   margin-bottom: 24px;
 }
@@ -80,8 +80,9 @@
 /* Card */
 .filter-item {
   position: relative;
-  height: 180px;
-  border-radius: 16px;
+
+  height: 242px;
+  border-radius: 12px;
   border: none;
   padding: 0;
   cursor: pointer;

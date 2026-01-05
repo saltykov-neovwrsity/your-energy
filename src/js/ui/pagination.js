@@ -1,17 +1,25 @@
-import { fetchExercisesByCategory } from './exercises';
+// ui/pagination.js
 import { state } from './state';
+import { fetchExercisesByCategory } from './exercises';
+import { renderFiltersPage } from './filters';
 
 const paginationEl = document.querySelector('.pagination-list');
 
 paginationEl.addEventListener('click', event => {
-  const button = event.target.closest('.pagination-btn');
-  if (!button) return;
+  const btn = event.target.closest('.pagination-btn');
+  if (!btn) return;
 
-  const page = Number(button.dataset.page);
+  const page = Number(btn.dataset.page);
 
-  fetchExercisesByCategory(
-    state.activeFilter,
-    state.selectedCategory,
-    page
-  );
+  if (state.selectedCategory) {
+    fetchExercisesByCategory(
+      state.activeFilter,
+      state.selectedCategory,
+      page
+    );
+    return;
+  }
+
+  state.filtersPage = page;
+  renderFiltersPage();
 });

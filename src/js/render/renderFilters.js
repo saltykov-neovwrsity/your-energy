@@ -1,5 +1,6 @@
 import { capitalizeFirstLetter } from '../utils/capitalizeFirstLetter';
 
+
 export function renderFilters(items) {
   const container = document.querySelector('.filters-content');
   if (!container) return;

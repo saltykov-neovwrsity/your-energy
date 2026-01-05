@@ -12,7 +12,6 @@
 
 /* Components */
 @import url('./components/quote.css');
-@import url('./components/subscription.css');
 @import url('./components/filters.css');
 @import url('./components/exercises.css');
 @import url('./components/pagination.css');
