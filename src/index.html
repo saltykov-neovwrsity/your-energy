@@ -1,46 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Your Energy</title>
-    <link rel="stylesheet" href="./css/styles.css" />
-  </head>
 
-  <body>
-    <!-- HEADER -->
-    <load src="./partials/header.html" />
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="img/icons/news.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Energy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
 
-    
-    <load src="./partials/hero.html" />
-  
-    <!-- MAIN -->
-    <main class="main">
-      <div class="container main-layout">
-  
+<body>
+  <!-- HEADER -->
+  <load src="./partials/header.html" />
+  <load src="./partials/mobile-menu.html" />
+
+
+  <load src="./partials/hero.html" />
+
+  <!-- MAIN -->
+  <main class="main">
+    <div class="container exercises-page-container">
+
+      <load src="./partials/filters.html" />
+
+      <div class="main-layout">
         <!-- LEFT COLUMN -->
         <aside class="sidebar">
           <load src="./partials/quote.html" />
         </aside>
-  
+
         <!-- CONTENT -->
         <section class="content">
-          <load src="./partials/filters.html" />
+          <div class="filters-content"></div>
           <load src="./partials/exercises.html" />
           <load src="./partials/pagination.html" />
         </section>
-  
       </div>
-    </main>
-  
-    <!-- MODAL -->
-    <load src="./partials/modal-exercise.html" />
 
-    <!-- FOOTER -->
-    <load src="./partials/footer.html" />
-  
-    <script type="module" src="./main.js"></script>
-  </body>
+    </div>
+  </main>
+
+  <!-- MODAL -->
+  <load src="./partials/modal-exercise.html" />
+
+  <!-- FOOTER -->
+  <load src="./partials/footer.html" />
+
+  <script type="module" src="./main.js"></script>
+</body>
 
 </html>

@@ -2,6 +2,9 @@
   position: fixed;
   inset: 0;
   z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .modal.is-hidden {
@@ -14,15 +17,10 @@
   background: rgba(36, 36, 36, 0.6);
 }
 
-/* =========================
-   MODAL CONTAINER
-========================= */
 .modal__content {
   position: relative;
   width: 708px;
   height: 486px;
-  margin: auto;
-  margin-top: 100px;
 
 
   background-color: #242424;
@@ -30,10 +28,8 @@
   padding: 32px;
 
   display: flex;
-  /* align-items: center; */
 }
 
-/* Close button */
 .modal__close {
   position: absolute;
   top: 20px;
@@ -46,9 +42,7 @@
   cursor: pointer;
 }
 
-/* =========================
-   MODAL BODY GRID
-========================= */
+
 .modal__body {
   display: grid;
   grid-template-columns: 260px 1fr;
@@ -56,9 +50,6 @@
   width: 100%;
 }
 
-/* =========================
-   IMAGE
-========================= */
 .modal__image {
   background: none;
   border-radius: 0;
@@ -72,14 +63,10 @@
 .modal-gif {
   width: 270px;
   height: 259px;
-  /* max-height: 360px; */
   object-fit: contain;
   border-radius: 10px;
 }
 
-/* =========================
-   INFO
-========================= */
 .modal__info {
   color: #ffffff;
   display: flex;
@@ -93,7 +80,6 @@
   margin-bottom: 8px;
 }
 
-/* Rating */
 .modal__rating {
   display: flex;
   align-items: center;
@@ -119,9 +105,6 @@
   color: #eea10c;
 }
 
-/* =========================
-   META LIST
-========================= */
 .modal__meta {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -140,9 +123,6 @@
 
 }
 
-/* =========================
-   DESCRIPTION
-========================= */
 .modal-description {
   font-size: 14px;
   line-height: 1.4;
@@ -156,16 +136,12 @@
   margin: 16px 0;
 }
 
-/* =========================
-   ACTIONS
-========================= */
 .modal__actions {
   display: flex;
   gap: 12px;
   margin-top: 24px;
 }
 
-/* Buttons */
 .btn-primary {
   background-color: #ffffff;
   color: #242424;

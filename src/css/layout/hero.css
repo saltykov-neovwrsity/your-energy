@@ -1,84 +1,199 @@
-
+.hero {
+  padding: 0;
+}
 
 .hero__container {
   display: flex;
   flex-direction: column;
   gap: 32px;
-  
+  padding: 40px 32px;
+  background-color: #f4f4f4;
 }
 
-/* ===== TEXT ===== */
+.hero__top {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+@media screen and (min-width: 1440px) {
+  .hero__top {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+}
 
 .hero__content {
-  max-width: 720px;
-  
+  max-width: 100%;
 }
 
-.hero__title {
-  font-size: 64px;
-  font-weight: 500;
-  line-height: 1.1;
-  margin-bottom: 20px;
+@media screen and (min-width: 1440px) {
+  .hero__content {
+    max-width: 1050px;
+  }
+}
+
+.hero__star {
+  display: inline-block;
+  vertical-align: top;
+  width: 44px;
+  height: 44px;
+  margin-right: -4px;
+  margin-top: 2px;
   color: #242424;
 }
 
-.hero__description {
+@media screen and (min-width: 768px) {
+  .hero__star {
+    width: 70px;
+    height: 70px;
+    margin-top: 6px;
+    margin-right: -6px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .hero__star {
+    width: 90px;
+    height: 90px;
+    margin-top: 10px;
+    margin-right: -10px;
+  }
+}
+
+.hero__title {
+  margin-bottom: 24px;
+  font-weight: 500;
+  font-size: 44px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: #242424;
+}
+
+.hero__title i {
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 768px) {
+  .hero__title {
+    font-size: 80px;
+    margin-bottom: 28px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .hero__title {
+    font-size: 110px;
+    margin-bottom: 32px;
+  }
+}
+
+.hero__text {
+  max-width: 335px;
+  font-weight: 400;
   font-size: 14px;
-  line-height: 1.4;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
   color: rgba(36, 36, 36, 0.6);
-  max-width: 560px;
 }
 
-/* ===== IMAGE ===== */
+@media screen and (min-width: 768px) {
+  .hero__text {
+    max-width: 480px;
+    font-size: 18px;
+    line-height: 1.33;
+  }
+}
 
-.hero__image {
-  border-radius: 24px;
+.hero__aside {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media screen and (min-width: 1440px) {
+  .hero__aside {
+    align-items: flex-end;
+  }
+}
+
+.hero__small-image-wrapper {
+  width: 180px;
+  height: 110px;
+  border-radius: 20px;
   overflow: hidden;
 }
 
-.hero__image img {
-  width: 100%;
-  height: 350px;
-  object-fit: cover;
-  display: block;
+@media screen and (min-width: 768px) {
+  .hero__small-image-wrapper {
+    width: 220px;
+    height: 135px;
+  }
 }
 
-.hero__image_main {
+.hero__small-image {
   width: 100%;
-  height: 350px;
+  height: 100%;
   object-fit: cover;
-  display: block;
-  border-radius: 60px;
+}
+
+.hero__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media screen and (min-width: 1440px) {
+  .hero__tags {
+    justify-content: flex-end;
+    max-width: 240px;
+  }
+}
+
+.hero__tag {
+  padding: 8px 16px;
+  border: 1px solid rgba(36, 36, 36, 0.2);
+  border-radius: 30px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.29;
+  color: #242424;
+}
+
+.hero__main-image-wrapper {
+  width: 100%;
+  border-radius: 40px;
+  border: 1px solid #000000;
   overflow: hidden;
 }
 
-.hero__image_main img {
-  width: 100%;
-  height: 360px;
-  object-fit: cover;
+@media screen and (min-width: 768px) {
+  .hero__main-image-wrapper {
+    border-radius: 60px;
+  }
+}
+
+.hero__main-image {
   display: block;
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
 }
 
-/* ===== TABLET ===== */
-
-@media screen and (max-width: 1199px) {
-  .hero__title {
-    font-size: 48px;
-  }
-
-  .hero__image img {
-    height: 300px;
+@media screen and (min-width: 768px) {
+  .hero__main-image {
+    height: 350px;
   }
 }
 
-/* ===== MOBILE ===== */
-
-@media screen and (max-width: 767px) {
-  .hero__title {
-    font-size: 36px;
-  }
-
-  .hero__image img {
-    height: 240px;
+@media screen and (min-width: 1440px) {
+  .hero__main-image {
+    height: 350px;
   }
 }

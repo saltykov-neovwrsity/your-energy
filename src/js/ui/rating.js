@@ -8,22 +8,24 @@ const form = document.querySelector('.rating-modal__form');
 
 let selectedRate = 0;
 
-/* open */
-document.querySelector('.btn-outline').addEventListener('click', () => {
-  openRatingModal();
-  closeModal();
-});
+if (document.querySelector('.btn-outline')) {
+  document.querySelector('.btn-outline').addEventListener('click', () => {
+    openRatingModal();
+    closeModal();
+  });
+}
 
-/* close */
-ratingModal.addEventListener('click', event => {
-  if (
-    event.target.classList.contains('rating-modal__backdrop') ||
-    event.target.classList.contains('rating-modal__close')
-  ) {
-    closeRatingModal();
-    openModal();
-  }
-});
+if (ratingModal) {
+  ratingModal.addEventListener('click', event => {
+    if (
+      event.target.classList.contains('rating-modal__backdrop') ||
+      event.target.classList.contains('rating-modal__close')
+    ) {
+      closeRatingModal();
+      openModal();
+    }
+  });
+}
 
 function openRatingModal() {
   ratingModal.classList.remove('is-hidden');
@@ -36,7 +38,6 @@ function closeRatingModal() {
 }
 
 
-/* stars */
 starsContainer.addEventListener('click', event => {
   const star = event.target.closest('[data-star]');
   if (!star) return;
@@ -54,7 +55,6 @@ function highlightStars(rate) {
   });
 }
 
-/* submit */
 form.addEventListener('submit', async e => {
   e.preventDefault();
 

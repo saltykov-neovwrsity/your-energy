@@ -2,6 +2,9 @@
   position: fixed;
   inset: 0;
   z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .rating-modal.is-hidden {
@@ -14,13 +17,10 @@
   background: rgba(36, 36, 36, 0.6);
 }
 
-/* Container */
 .rating-modal__content {
   position: relative;
   width: 430px;
   height: 412px;
-  margin: auto;
-  margin-top: 120px;
 
   background-color: #242424;
   border-radius: 20px;
@@ -30,7 +30,6 @@
   flex-direction: column;
 }
 
-/* Close */
 .rating-modal__close {
   position: absolute;
   top: 18px;
@@ -43,14 +42,12 @@
   cursor: pointer;
 }
 
-/* Label */
 .rating-modal__label {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.6);
   margin-bottom: 8px;
 }
 
-/* Stars */
 .rating-modal__stars {
   display: flex;
   gap: 6px;
@@ -69,7 +66,6 @@
   color: #eea10c;
 }
 
-/* Form */
 .rating-modal__form {
   display: flex;
   flex-direction: column;
@@ -93,7 +89,6 @@
   resize: none;
 }
 
-/* Submit */
 .rating-modal__submit {
   margin-top: auto;
   background: #ffffff;

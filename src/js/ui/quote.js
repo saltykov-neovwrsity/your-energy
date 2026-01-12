@@ -6,7 +6,7 @@ const quoteAuthor = document.querySelector('.quote-author');
 
 function renderQuote({ quote, author }) {
   quoteText.textContent = quote;
-  quoteAuthor.textContent = `— ${author}`;
+  quoteAuthor.textContent = author;
 }
 
 async function initQuote() {
@@ -22,7 +22,7 @@ async function initQuote() {
   try {
     const data = await getQuote();
     quoteText.textContent = data.quote;
-    quoteAuthor.textContent = `-${data.author}`;
+    quoteAuthor.textContent = data.author;
     saveQuote(data.quote, data.author);
   } catch (error) {
     console.error(error);

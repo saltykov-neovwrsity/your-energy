@@ -4,36 +4,53 @@ import { renderPagination } from '../render/renderPagination';
 import { fetchExercisesByCategory } from './exercises';
 import { state } from './state';
 
-
 const filtersEl = document.querySelector('.filters');
 const filtersContentEl = document.querySelector('.filters-content');
+const subcategorySpan = document.querySelector('.subcategory-span');
 
-filtersEl.addEventListener('click', async event => {
-  const button = event.target.closest('.filter-tab');
-  if (!button) return;
+const filterContainer = document.querySelector('.filters-list');
 
-  state.activeFilter = button.dataset.filter;
-  state.currentPage = 1;
-  updateActiveTab();
-  showFilters()
-  clearExercises();
-  hideSearch();
+function handleFilterClick(event) {
+  console.log('Filter container clicked:', event.target);
+}
 
-  await renderFiltersPage();
-});
+if (filterContainer) {
+  filterContainer.addEventListener('click', handleFilterClick);
+}
 
-filtersContentEl.addEventListener('click', event => {
-  const button = event.target.closest('.filter-item');
-  if (!button) return;
+if (filtersEl) {
+  filtersEl.addEventListener('click', async event => {
+    const button = event.target.closest('.filter-tab');
+    if (!button) return;
 
-  state.selectedCategory = button.dataset.value;
+    state.activeFilter = button.dataset.filter;
+    state.selectedCategory = null;
+    state.currentPage = 1;
+    updateActiveTab();
+    showFilters()
+    clearExercises();
+    hideSearch();
+    subcategorySpan.textContent = '';
 
-  hideFilters();
-  showExercises();
-  showSearch();
+    await renderFiltersPage();
+  });
+}
 
-  fetchExercisesByCategory(state.activeFilter, state.selectedCategory);
-});
+if (filtersContentEl) {
+  filtersContentEl.addEventListener('click', event => {
+    const button = event.target.closest('.filter-item');
+    if (!button) return;
+
+    state.selectedCategory = button.dataset.value;
+    subcategorySpan.textContent = ` / ${state.selectedCategory}`;
+
+    hideFilters();
+    showExercises();
+    showSearch();
+
+    fetchExercisesByCategory(state.activeFilter, state.selectedCategory);
+  });
+}
 
 function hideFilters() {
   const el = document.querySelector('.filters-content');
@@ -46,12 +63,12 @@ function showFilters() {
 }
 
 function showExercises() {
-  const el = document.querySelector('.exercises-list');
+  const el = document.querySelector('.exercises');
   if (el) el.classList.remove('is-hidden');
 }
 
 function clearExercises() {
-  const el = document.querySelector('.exercises-list');
+  const el = document.querySelector('.exercises');
   if (el) el.classList.add('is-hidden');
 }
 
@@ -75,7 +92,10 @@ function updateActiveTab() {
 }
 
 (async function initFilters() {
+  if (!filtersEl) return;
   state.currentPage = 1;
+  clearExercises();
+  hideSearch();
   await renderFiltersPage();
 })();
 

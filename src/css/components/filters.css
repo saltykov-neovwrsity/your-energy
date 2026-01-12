@@ -3,26 +3,80 @@
 }
 
 
-.filters-top {
-    display: grid;
-    grid-template-columns: auto max-content;
-    column-gap: 48px;
+.filters-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
 
+.exercises-title {
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.21;
+  letter-spacing: -0.02em;
+  color: #242424;
+}
 
+@media screen and (min-width: 768px) {
+  .exercises-title {
+    font-size: 44px;
+    line-height: 1.09;
+  }
+}
+
+.subcategory-span {
+  color: rgba(36, 36, 36, 0.5);
+}
+
+.filters-controls {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.search-input-wrapper {
+  position: relative;
+  width: 272px;
+}
+
+.search-input-wrapper input {
+  width: 100%;
+  padding: 12px 16px;
+  padding-right: 48px;
+  border: 1px solid rgba(36, 36, 36, 0.2);
+  border-radius: 30px;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-icon {
+  fill: #242424;
 }
 
 
-/* Tabs list */
 .filters-tabs {
   display: flex;
-  justify-content: flex-start;
-
+  gap: 16px;
   list-style: none;
   padding: 0;
-  margin: 0 0 16px;
+  margin: 0;
 }
 
-/* Buttons */
 .filter-tab {
   padding: 6px 12px;
   border: none;
@@ -33,7 +87,6 @@
   position: relative;
 }
 
-/* Active tab */
 .filter-tab.is-active {
   color: #242424;
   font-weight: 500;
@@ -50,12 +103,10 @@
   border-radius: 2px;
 }
 
-/* Hover */
 .filter-tab:hover {
   color: #242424;
 }
 
-/* Search */
 .search-form {
   width: 280px;
 
@@ -77,7 +128,6 @@
   margin-bottom: 24px;
 }
 
-/* Card */
 .filter-item {
   position: relative;
 
@@ -95,7 +145,6 @@
   overflow: hidden;
 }
 
-/* Dark overlay */
 .filter-item__overlay {
   position: absolute;
   inset: 0;
@@ -117,7 +166,6 @@
   padding: 0 12px;
 }
 
-/* TITLE */
 .filter-item__title {
   font-size: 24px;
   font-weight: 400;
@@ -125,7 +173,6 @@
   color: #fff;
 }
 
-/* SUBTITLE */
 .filter-item__subtitle {
   font-size: 10px;
   font-weight: 300;
@@ -134,7 +181,6 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
-/* Hover */
 .filter-item:hover .filter-item__overlay {
   background: rgba(0, 0, 0, 0.45);
 }

@@ -6,4 +6,10 @@ export async function getExercises(params) {
   return res.json();
 }
 
+export async function getExerciseById(id) {
+  const res = await fetch(`${BASE_URL}/exercises/${id}`);
+  if (!res.ok) throw new Error('Exercise fetch error');
+  return res.json();
+}
+
 

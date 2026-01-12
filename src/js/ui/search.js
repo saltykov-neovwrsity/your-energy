@@ -3,19 +3,21 @@ import { state } from './state';
 
 const searchForm = document.querySelector('.search-form');
 
-searchForm.addEventListener('submit', event => {
-  event.preventDefault();
+if (searchForm) {
+  searchForm.addEventListener('submit', event => {
+    event.preventDefault();
 
-  const keyword = new FormData(searchForm)
-    .get('keyword')
-    .trim();
+    const keyword = new FormData(searchForm)
+      .get('keyword')
+      .trim();
 
-  if (!keyword || !state.selectedCategory) return;
+    if (!keyword || !state.selectedCategory) return;
 
-  fetchExercisesByCategory(
-    state.activeFilter,
-    state.selectedCategory,
-    1,
-    keyword
-  );
-});
+    fetchExercisesByCategory(
+      state.activeFilter,
+      state.selectedCategory,
+      1,
+      keyword
+    );
+  });
+}

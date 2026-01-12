@@ -5,9 +5,9 @@ import { toggleFavorite } from '../utils/favoritesStorage';
 import { renderFavoriteButton } from '../render/renderFavoriteButton';
 
 const modalEl = document.querySelector('.modal');
-const exercisesListEl = document.querySelector('.exercises-list');
+const exercisesList = document.querySelector('.exercises') || document.querySelector('.favorites-list');
 
-exercisesListEl.addEventListener('click', async event => {
+async function handleExerciseClick(event) {
   const button = event.target.closest('.start-btn');
   if (!button) return;
 
@@ -20,7 +20,11 @@ exercisesListEl.addEventListener('click', async event => {
   } catch (error) {
     console.error(error);
   }
-});
+}
+
+if (exercisesList) {
+  exercisesList.addEventListener('click', handleExerciseClick);
+}
 
 export function openModal() {
   modalEl.classList.remove('is-hidden');
@@ -32,20 +36,22 @@ export function closeModal() {
   document.body.style.overflow = '';
 }
 
-modalEl.addEventListener('click', event => {
-  const favBtn = event.target.closest('.js-favorite-btn');
+if (modalEl) {
+  modalEl.addEventListener('click', event => {
+    const favBtn = event.target.closest('.js-favorite-btn');
 
-  if (favBtn) {
-    toggleFavorite(state.currentExerciseId);
-    renderFavoriteButton(favBtn, state.currentExerciseId);
-    return;
-  }
+    if (favBtn) {
+      toggleFavorite(state.currentExerciseId);
+      renderFavoriteButton(favBtn, state.currentExerciseId);
+      return;
+    }
 
-  if (
-    event.target.classList.contains('modal__backdrop') ||
-    event.target.classList.contains('modal__close')
-  ) {
-    closeModal();
-  }
-});
+    if (
+      event.target.classList.contains('modal__backdrop') ||
+      event.target.classList.contains('modal__close')
+    ) {
+      closeModal();
+    }
+  });
+}
 

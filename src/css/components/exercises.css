@@ -2,15 +2,8 @@
   display: grid;
   grid-template-columns: repeat(2, 442px);
   gap: 20px;
+  margin-bottom: 24px;
 }
-
-
-
-/**
-  |============================
-  | Exercise card
-  |============================
-*/
 
 .exercise-card {
   background-color: #ffffff;
@@ -22,14 +15,12 @@
   gap: 12px;
 }
 
-/* Header row */
 .exercise-card__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* Meta */
 .exercise-card__meta {
   display: flex;
   align-items: center;
@@ -53,7 +44,6 @@
   color: #eea10c;
 }
 
-/* Start button */
 .exercise-card__start {
   background-color: #ffffff;
   color: #000000;
@@ -68,14 +58,12 @@
   background-color: #222;
 }
 
-/* Title */
 .exercise-card__title {
   font-size: 20px;
   font-weight: 600;
   color: #242424;
 }
 
-/* Info */
 .exercise-card__info {
   font-size: 12px;
   line-height: 1.4;

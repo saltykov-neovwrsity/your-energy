@@ -1,20 +1,19 @@
-/* Reset & base */
 @import url('./reset.css');
 @import url('./layout/base.css');
 @import url('./container.css');
 @import url('./animations.css');
 
-/* Layout sections */
 @import url('./layout/header.css');
+@import url('./layout/mobile-menu.css');
 @import url('./layout/hero.css');
+@import url('./layout/sidebar.css');
 @import url('./layout/footer.css');
+@import url('./layout/favorites.css');
 @import url('./layout/layout.css');
 
-/* Components */
 @import url('./components/quote.css');
 @import url('./components/filters.css');
 @import url('./components/exercises.css');
 @import url('./components/pagination.css');
 @import url('./components/rating_modal.css');
 @import url('./components/modal.css');
-

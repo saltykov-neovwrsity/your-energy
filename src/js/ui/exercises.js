@@ -3,13 +3,13 @@ import { renderExercises } from '../render/renderExercises';
 import { renderPagination } from '../render/renderPagination';
 import { state } from './state';
 
-export async function fetchExercisesByCategory(filterType, value, page = 1) {
+export async function fetchExercisesByCategory(filterType, value, page = 1, keyword = '') {
   try {
     state.currentPage = page;
 
     const params = new URLSearchParams({
       page: state.currentPage,
-      limit: 6,
+      limit: 10,
     });
 
     if (filterType === 'Muscles') {
@@ -22,6 +22,10 @@ export async function fetchExercisesByCategory(filterType, value, page = 1) {
 
     if (filterType === 'Equipment') {
       params.append('equipment', value);
+    }
+
+    if (keyword) {
+      params.append('keyword', keyword);
     }
 
     const data = await getExercises(params.toString());

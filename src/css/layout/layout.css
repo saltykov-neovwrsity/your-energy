@@ -4,7 +4,6 @@
   padding-left: 32px;
   padding-right: 32px;
   background-color: #F4F4F4;
-
 }
 
 .main-layout {
@@ -16,23 +15,28 @@
 .sidebar {
   width: 444px;
   flex-shrink: 0;
+  margin-top: 0;
+}
+
+.main {
+  background-color: #F4F4F4;
+  padding-bottom: 130px;
 }
 
 .content {
   flex: 1;
 }
 
-.quote,
-.subscription,
-.filters,
-.exercises,
-.pagination {
+.filters {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.subscription {
+  margin-top: 48px;
   margin-bottom: 24px;
 }
 
 .is-hidden {
-  visibility: hidden;
-  pointer-events: none;
-  height: 0;
-  overflow: hidden;
+  display: none !important;
 }

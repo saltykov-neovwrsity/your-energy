@@ -1,29 +1,37 @@
 <section class="filters">
-  <div class="filters-top">
-    
-    <form class="search-form is-hidden">
-      <input type="text" name="keyword" placeholder="Search exercises..." autocomplete="off" />
-    </form>
-    <ul class="filters-tabs">
-      <li>
-        <button class="filter-tab is-active" data-filter="Muscles">
-          Muscles
-        </button>
-      </li>
-      <li>
-        <button class="filter-tab" data-filter="Body parts">
-          Body parts
-        </button>
-      </li>
-      <li>
-        <button class="filter-tab" data-filter="Equipment">
-          Equipment
-        </button>
-      </li>
-    </ul>
-  </div>
-    <!-- сюди пізніше підставимо категорії -->
-    <div class="filters-content"></div>
+  <div class="filters-header">
+    <h2 class="exercises-title">Exercises<span class="subcategory-span"></span></h2>
 
-  
+    <div class="filters-controls">
+      <form class="search-form is-hidden">
+        <div class="search-input-wrapper">
+          <input type="text" name="keyword" placeholder="Search" autocomplete="off" />
+          <button type="submit" class="search-btn">
+            <svg class="search-icon" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12.929 11.515a6 6 0 1 0-1.414 1.414l3.192 3.192a1 1 0 1 0 1.414-1.414l-3.192-3.192ZM11 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"
+                fill="#242424" />
+            </svg>
+          </button>
+        </div>
+      </form>
+      <ul class="filters-tabs">
+        <li>
+          <button class="filter-tab is-active" data-filter="Muscles">
+            Muscles
+          </button>
+        </li>
+        <li>
+          <button class="filter-tab" data-filter="Body parts">
+            Body parts
+          </button>
+        </li>
+        <li>
+          <button class="filter-tab" data-filter="Equipment">
+            Equipment
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
 </section>
