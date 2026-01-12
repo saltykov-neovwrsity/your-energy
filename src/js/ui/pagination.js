@@ -1,4 +1,4 @@
-// ui/pagination.js
+
 import { state } from './state';
 import { fetchExercisesByCategory } from './exercises';
 import { renderFiltersPage } from './filters';
@@ -10,6 +10,7 @@ paginationEl.addEventListener('click', event => {
   if (!btn) return;
 
   const page = Number(btn.dataset.page);
+  state.currentPage = page;
 
   if (state.selectedCategory) {
     fetchExercisesByCategory(
@@ -17,9 +18,7 @@ paginationEl.addEventListener('click', event => {
       state.selectedCategory,
       page
     );
-    return;
+  } else {
+    renderFiltersPage();
   }
-
-  state.filtersPage = page;
-  renderFiltersPage();
 });

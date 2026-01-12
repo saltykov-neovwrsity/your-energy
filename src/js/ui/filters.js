@@ -13,17 +13,13 @@ filtersEl.addEventListener('click', async event => {
   if (!button) return;
 
   state.activeFilter = button.dataset.filter;
+  state.currentPage = 1;
   updateActiveTab();
   showFilters()
   clearExercises();
   hideSearch();
 
-  try {
-    const data = await getFilters(state.activeFilter);
-    renderFilters(data.results);
-  } catch (error) {
-    console.error(error);
-  }
+  await renderFiltersPage();
 });
 
 filtersContentEl.addEventListener('click', event => {
@@ -40,27 +36,33 @@ filtersContentEl.addEventListener('click', event => {
 });
 
 function hideFilters() {
-  document.querySelector('.filters-content').classList.add('is-hidden');
+  const el = document.querySelector('.filters-content');
+  if (el) el.classList.add('is-hidden');
 }
 
 function showFilters() {
-  document.querySelector('.filters-content').classList.remove('is-hidden');
+  const el = document.querySelector('.filters-content');
+  if (el) el.classList.remove('is-hidden');
 }
 
 function showExercises() {
-  document.querySelector('.exercises-list').classList.remove('is-hidden');
+  const el = document.querySelector('.exercises-list');
+  if (el) el.classList.remove('is-hidden');
 }
 
 function clearExercises() {
-  document.querySelector('.exercises-list').classList.add('is-hidden');
+  const el = document.querySelector('.exercises-list');
+  if (el) el.classList.add('is-hidden');
 }
 
 function showSearch() {
-  document.querySelector('.search-form').classList.remove('is-hidden');
+  const el = document.querySelector('.search-form');
+  if (el) el.classList.remove('is-hidden');
 }
 
 function hideSearch() {
-  document.querySelector('.search-form').classList.add('is-hidden');
+  const el = document.querySelector('.search-form');
+  if (el) el.classList.add('is-hidden');
 }
 
 function updateActiveTab() {
@@ -73,26 +75,22 @@ function updateActiveTab() {
 }
 
 (async function initFilters() {
-  const data = await getFilters(state.activeFilter);
-  state.filters = data.results;
-  state.filtersPage = 1;
-
-  renderFiltersPage();
-
+  state.currentPage = 1;
+  await renderFiltersPage();
 })();
 
-export function renderFiltersPage() {
-  const start = (state.filtersPage - 1) * state.filtersPerPage;
-  const end = start + state.filtersPerPage;
+export async function renderFiltersPage() {
+  try {
+    const data = await getFilters({
+      filter: state.activeFilter,
+      page: state.currentPage,
+      limit: state.filtersPerPage
+    });
 
-  const pageItems = state.filters.slice(start, end);
-
-  renderFilters(pageItems);
-
-  state.totalPages = Math.ceil(
-    state.filters.length / state.filtersPerPage
-  );
-
-  state.currentPage = state.filtersPage;
-  renderPagination();
+    state.totalPages = data.totalPages;
+    renderFilters(data.results);
+    renderPagination();
+  } catch (error) {
+    console.error(error);
+  }
 }
