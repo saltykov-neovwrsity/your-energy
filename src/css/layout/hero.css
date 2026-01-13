@@ -46,8 +46,8 @@
 
 @media screen and (min-width: 768px) {
   .hero__star {
-    width: 70px;
-    height: 70px;
+    width: 59px;
+    height: 59px;
     margin-top: 6px;
     margin-right: -6px;
   }
@@ -55,8 +55,8 @@
 
 @media screen and (min-width: 1440px) {
   .hero__star {
-    width: 90px;
-    height: 90px;
+    width: 59px;
+    height: 59px;
     margin-top: 10px;
     margin-right: -10px;
   }
@@ -86,7 +86,7 @@
 
 @media screen and (min-width: 1440px) {
   .hero__title {
-    font-size: 110px;
+    font-size: 72px;
     margin-bottom: 32px;
   }
 }
@@ -121,16 +121,16 @@
 }
 
 .hero__small-image-wrapper {
-  width: 180px;
-  height: 110px;
+  width: 168px;
+  height: 100px;
   border-radius: 20px;
   overflow: hidden;
 }
 
 @media screen and (min-width: 768px) {
   .hero__small-image-wrapper {
-    width: 220px;
-    height: 135px;
+    width: 168px;
+    height: 100px;
   }
 }
 

@@ -7,9 +7,8 @@
 }
 
 .footer__container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   gap: 40px;
   padding-bottom: 64px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -23,16 +22,10 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
-  flex: 0 0 auto;
 }
 
 .footer__logo {
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 1.11;
-  letter-spacing: -0.02em;
-  color: #FFFFFF;
+  display: inline-block;
   margin: 0;
 }
 
@@ -63,7 +56,6 @@
 }
 
 .footer__center {
-  flex: 1;
   display: flex;
   justify-content: center;
   padding-top: 10px;
@@ -89,7 +81,6 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  flex: 0 0 auto;
 }
 
 .footer__subtitle {
@@ -151,15 +142,26 @@
 .footer__bottom-wrapper {
   padding-top: 24px;
   background-color: transparent !important;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 40px;
 }
 
 .footer__bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: contents;
+}
+
+.footer__copyright-wrapper,
+.footer__links-wrapper,
+.footer__year-wrapper {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.6);
   letter-spacing: -0.02em;
+}
+
+.footer__links-wrapper {
+  display: flex;
+  justify-content: center;
 }
 
 .copyright {
@@ -180,6 +182,11 @@
 
 .footer__links a:hover {
   color: #FFFFFF;
+}
+
+.footer__year-wrapper {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .year {
@@ -247,6 +254,15 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
+  }
+
+  .footer__year-wrapper {
+    width: auto;
+    justify-content: flex-start;
+  }
+
+  .footer__links-wrapper {
+    justify-content: flex-start;
   }
 
   .copyright,

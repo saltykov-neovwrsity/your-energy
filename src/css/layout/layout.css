@@ -3,7 +3,6 @@
   margin: 0 auto;
   padding-left: 32px;
   padding-right: 32px;
-  background-color: #F4F4F4;
 }
 
 .main-layout {
@@ -19,12 +18,17 @@
 }
 
 .main {
-  background-color: #F4F4F4;
-  padding-bottom: 130px;
+  background-color: transparent;
 }
 
 .content {
   flex: 1;
+}
+
+.exercises-page-container {
+  background-color: #F4F4F4;
+  padding: 40px 32px;
+  padding-bottom: 130px;
 }
 
 .filters {
