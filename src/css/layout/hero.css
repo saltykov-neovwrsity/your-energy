@@ -156,6 +156,12 @@
   object-fit: cover;
 }
 
+@media screen and (min-width: 1440px) {
+  .hero__main-image {
+    border-radius: 60px;
+  }
+}
+
 .hero__aside {
   display: flex;
   flex-direction: column;
