@@ -5,12 +5,7 @@
 }
 
 .sidebar-title {
-  font-weight: 400;
-  font-size: 28px;
-  line-height: 1.21;
-  letter-spacing: -0.02em;
-  color: #242424;
-  margin-bottom: 20px;
+  display: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -91,9 +86,16 @@
 
 .sidebar-img-wrapper {
   width: 100%;
+  aspect-ratio: 335 / 242;
   border-radius: 20px;
   overflow: hidden;
-  margin-top: 20px;
+}
+
+@media screen and (min-width: 1440px) {
+  .sidebar-img-wrapper {
+    aspect-ratio: auto;
+    height: auto;
+  }
 }
 
 .sidebar-img {
@@ -108,7 +110,6 @@
   background-color: #ffffff;
   border-radius: 20px;
   border: 1px solid rgba(36, 36, 36, 0.1);
-  margin-top: 20px;
 }
 
 @media screen and (min-width: 768px) {
@@ -128,12 +129,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
+  width: 32px;
   height: 32px;
+  background-color: #242424;
+  border-radius: 50%;
+  color: #F4F4F4;
+}
+
+.info-card-icon-wrapper svg {
+  fill: currentColor;
 }
 
 .info-card-title {
-  font-weight: 400;
+  font-weight: 500;
   font-size: 18px;
   line-height: 1.11;
   letter-spacing: -0.02em;

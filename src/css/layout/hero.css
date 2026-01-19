@@ -5,15 +5,28 @@
 .hero__container {
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  padding: 40px 32px;
+  gap: 20px;
+  padding: 20px 20px 40px;
   background-color: #f4f4f4;
+}
+
+@media screen and (min-width: 768px) {
+  .hero__container {
+    padding: 40px 32px;
+    gap: 32px;
+  }
 }
 
 .hero__top {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .hero__top {
+    gap: 32px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -36,11 +49,11 @@
 
 .hero__star {
   display: inline-block;
-  vertical-align: top;
-  width: 44px;
-  height: 44px;
-  margin-right: -4px;
-  margin-top: 2px;
+  vertical-align: middle;
+  width: 38px;
+  height: 38px;
+  margin-right: 0;
+  margin-top: -4px;
   color: #242424;
 }
 
@@ -48,25 +61,16 @@
   .hero__star {
     width: 59px;
     height: 59px;
-    margin-top: 6px;
-    margin-right: -6px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .hero__star {
-    width: 59px;
-    height: 59px;
-    margin-top: 10px;
-    margin-right: -10px;
+    margin-top: 14px;
+    vertical-align: top;
   }
 }
 
 .hero__title {
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   font-weight: 500;
-  font-size: 44px;
-  line-height: 1;
+  font-size: 38px;
+  line-height: 1.1;
   letter-spacing: -0.04em;
   color: #242424;
 }
@@ -79,20 +83,20 @@
 
 @media screen and (min-width: 768px) {
   .hero__title {
-    font-size: 80px;
+    font-size: 70px;
     margin-bottom: 28px;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .hero__title {
-    font-size: 72px;
+    font-size: 80px;
     margin-bottom: 32px;
   }
 }
 
 .hero__text {
-  max-width: 335px;
+  max-width: 100%;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.29;
@@ -108,6 +112,50 @@
   }
 }
 
+@media screen and (max-width: 767px) {
+  .hero__top {
+    display: contents;
+  }
+
+  .hero__content {
+    order: 1;
+  }
+
+  .hero__main-image-wrapper {
+    order: 2;
+    width: 100%;
+    margin: 0;
+    border-radius: 30px;
+    overflow: hidden;
+  }
+
+  .hero__aside {
+    order: 3;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero__small-image-wrapper {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .hero__main-image-wrapper {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    border-radius: 60px;
+  }
+}
+
+.hero__main-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .hero__aside {
   display: flex;
   flex-direction: column;
@@ -121,16 +169,16 @@
 }
 
 .hero__small-image-wrapper {
-  width: 168px;
-  height: 100px;
-  border-radius: 20px;
-  overflow: hidden;
+  display: none;
 }
 
 @media screen and (min-width: 768px) {
   .hero__small-image-wrapper {
+    display: block;
     width: 168px;
     height: 100px;
+    border-radius: 20px;
+    overflow: hidden;
   }
 }
 
@@ -142,11 +190,20 @@
 
 .hero__tags {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 4px;
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .hero__tags {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 8px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -157,43 +214,19 @@
 }
 
 .hero__tag {
-  padding: 8px 16px;
+  padding: 8px 12px;
   border: 1px solid rgba(36, 36, 36, 0.2);
   border-radius: 30px;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.29;
   color: #242424;
-}
-
-.hero__main-image-wrapper {
-  width: 100%;
-  border-radius: 40px;
-  border: 1px solid #000000;
-  overflow: hidden;
+  white-space: nowrap;
 }
 
 @media screen and (min-width: 768px) {
-  .hero__main-image-wrapper {
-    border-radius: 60px;
-  }
-}
-
-.hero__main-image {
-  display: block;
-  width: 100%;
-  height: 280px;
-  object-fit: cover;
-}
-
-@media screen and (min-width: 768px) {
-  .hero__main-image {
-    height: 350px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .hero__main-image {
-    height: 350px;
+  .hero__tag {
+    padding: 8px 16px;
+    font-size: 14px;
   }
 }

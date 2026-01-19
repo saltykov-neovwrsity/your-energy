@@ -3,6 +3,7 @@ import { renderFilters } from '../render/renderFilters';
 import { renderPagination } from '../render/renderPagination';
 import { fetchExercisesByCategory } from './exercises';
 import { state } from './state';
+import { getItemsLimit } from '../utils/getLimits';
 
 const filtersEl = document.querySelector('.filters');
 const filtersContentEl = document.querySelector('.filters-content');
@@ -101,10 +102,11 @@ function updateActiveTab() {
 
 export async function renderFiltersPage() {
   try {
+    const limits = getItemsLimit();
     const data = await getFilters({
       filter: state.activeFilter,
       page: state.currentPage,
-      limit: state.filtersPerPage
+      limit: limits.filters,
     });
 
     state.totalPages = data.totalPages;

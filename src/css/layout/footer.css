@@ -216,23 +216,45 @@
 
   .footer {
     padding-top: 40px;
-    padding-bottom: 20px;
+    padding-bottom: 40px;
   }
 
   .footer__container {
+    display: flex;
     flex-direction: column;
     gap: 40px;
     padding-bottom: 40px;
-    border-bottom: none;
+    border-bottom: 1px solid rgba(244, 244, 244, 0.2);
   }
 
   .footer__brand {
+    flex-direction: column;
+    align-items: flex-start;
     gap: 20px;
     width: 100%;
   }
 
+  .footer__center {
+    width: 100%;
+    order: 0;
+    padding-top: 0;
+    justify-content: flex-start;
+  }
+
+  .footer__text {
+    font-size: 32px;
+    line-height: 1.0;
+    max-width: 100%;
+  }
+
   .footer__subscribe {
     width: 100%;
+    gap: 20px;
+  }
+
+  .footer__subtitle {
+    max-width: 100%;
+    white-space: nowrap;
   }
 
   .footer__form,
@@ -241,36 +263,37 @@
     width: 100%;
   }
 
-  .footer__center {
-    width: 100%;
-    order: 2;
-  }
-
-  .footer__text {
-    font-size: 32px;
+  .footer__bottom-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 20px;
+    align-items: flex-start;
   }
 
   .footer__bottom {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px 0;
   }
 
-  .footer__year-wrapper {
-    width: auto;
-    justify-content: flex-start;
+  .footer__copyright-wrapper {
+    order: 1;
+    width: 100%;
+    color: rgba(255, 255, 255, 0.4);
   }
 
   .footer__links-wrapper {
+    order: 2;
     justify-content: flex-start;
   }
 
-  .copyright,
-  .year {
+  .footer__year-wrapper {
     order: 3;
-  }
-
-  .footer__links {
-    order: 1;
+    display: flex;
+    justify-content: flex-end;
   }
 }

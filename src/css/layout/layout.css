@@ -1,20 +1,49 @@
 .container {
-  max-width: 1440px;
+  max-width: 375px;
   margin: 0 auto;
-  padding-left: 32px;
-  padding-right: 32px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    max-width: 1440px;
+  }
 }
 
 .main-layout {
   display: flex;
-  gap: 32px;
-  align-items: flex-start;
+  flex-direction: column;
+  gap: 40px;
+}
+
+@media screen and (min-width: 1440px) {
+  .main-layout {
+    flex-direction: row;
+    gap: 32px;
+    align-items: flex-start;
+  }
 }
 
 .sidebar {
-  width: 444px;
-  flex-shrink: 0;
-  margin-top: 0;
+  width: 100%;
+  order: 2;
+}
+
+@media screen and (min-width: 1440px) {
+  .sidebar {
+    width: 444px;
+    flex-shrink: 0;
+    order: 1;
+  }
 }
 
 .main {
@@ -22,13 +51,26 @@
 }
 
 .content {
-  flex: 1;
+  width: 100%;
+  order: 1;
+}
+
+@media screen and (min-width: 1440px) {
+  .content {
+    flex: 1;
+    order: 2;
+  }
 }
 
 .exercises-page-container {
   background-color: #F4F4F4;
-  padding: 40px 32px;
-  padding-bottom: 130px;
+  padding: 40px 20px 80px;
+}
+
+@media screen and (min-width: 768px) {
+  .exercises-page-container {
+    padding: 64px 32px 130px;
+  }
 }
 
 .filters {

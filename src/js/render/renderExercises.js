@@ -20,17 +20,26 @@ export function renderExercises(items) {
     </div>
 
     <button class="exercise-card__start start-btn" data-id="${item._id}">
-      Start →
+      Start <span>→</span>
     </button>
   </div>
 
   <h3 class="exercise-card__title">${capitalizeFirstLetter(item.name)}</h3>
 
-  <p class="exercise-card__info">
-    Burned calories: ${item.burnedCalories} / ${item.time} min ·
-    Body part: ${item.bodyPart} ·
-    Target: ${item.target}
-  </p>
+  <div class="exercise-card__info">
+    <div>
+      <span class="exercise-card__info-label">Burned calories:</span>
+      <span class="exercise-card__info-value">${item.burnedCalories} / ${item.time} min</span>
+    </div>
+    <div>
+      <span class="exercise-card__info-label">Body part:</span>
+      <span class="exercise-card__info-value">${capitalizeFirstLetter(item.bodyPart)}</span>
+    </div>
+    <div>
+      <span class="exercise-card__info-label">Target:</span>
+      <span class="exercise-card__info-value">${capitalizeFirstLetter(item.target)}</span>
+    </div>
+  </div>
 </li>
       `
     )

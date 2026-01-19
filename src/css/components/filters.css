@@ -7,7 +7,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
+}
+
+@media screen and (max-width: 767px) {
+  .filters-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
 }
 
 .exercises-title {
@@ -35,9 +44,39 @@
   gap: 32px;
 }
 
+@media screen and (max-width: 767px) {
+  .filters-controls {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .filters-controls {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .filters-controls {
+    justify-content: flex-end;
+    gap: 32px;
+  }
+}
+
 .search-input-wrapper {
   position: relative;
-  width: 272px;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .search-input-wrapper {
+    width: 272px;
+  }
 }
 
 .search-input-wrapper input {
@@ -52,7 +91,7 @@
 
 .search-btn {
   position: absolute;
-  right: 12px;
+  right: 14px;
   top: 50%;
   transform: translateY(-50%);
   background: transparent;
@@ -65,7 +104,9 @@
 }
 
 .search-icon {
-  fill: #242424;
+  fill: none;
+  stroke: #242424;
+  color: #242424;
 }
 
 
@@ -108,24 +149,52 @@
 }
 
 .search-form {
-  width: 280px;
+  width: 100%;
+}
 
+@media screen and (min-width: 768px) {
+  .search-form {
+    width: auto;
+  }
 }
 
 .search-form input {
   width: 100%;
-  max-width: 300px;
-  padding: 10px 14px;
+  height: 48px;
+  padding: 0 48px 0 15px;
+  box-sizing: border-box;
   border-radius: 999px;
   border: 1px solid rgba(36, 36, 36, 0.3);
   font-size: 14px;
+  outline: none;
+}
+
+@media screen and (min-width: 1440px) {
+  .search-form input {
+    max-width: 273px;
+  }
 }
 
 .filters-content {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-bottom: 24px;
+  gap: 32px 16px;
+  margin-bottom: 32px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+  .filters-content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .filters-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(9, auto);
+    gap: 20px;
+    margin-bottom: 40px;
+  }
 }
 
 .filter-item {
@@ -185,14 +254,16 @@
   background: rgba(0, 0, 0, 0.45);
 }
 
-@media screen and (max-width: 1199px) {
-  .filters-content {
-    grid-template-columns: repeat(2, 1fr);
+/* Removed conflicting max-width: 1199px grid override */
+
+@media screen and (min-width: 768px) {
+  .filter-item {
+    height: 242px;
   }
 }
 
-@media screen and (max-width: 767px) {
-  .filters-content {
-    grid-template-columns: 1fr;
+@media screen and (min-width: 1440px) {
+  .filter-item {
+    height: 242px;
   }
 }

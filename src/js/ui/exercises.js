@@ -2,14 +2,16 @@ import { getExercises } from '../api/exercisesApi';
 import { renderExercises } from '../render/renderExercises';
 import { renderPagination } from '../render/renderPagination';
 import { state } from './state';
+import { getItemsLimit } from '../utils/getLimits';
 
 export async function fetchExercisesByCategory(filterType, value, page = 1, keyword = '') {
   try {
     state.currentPage = page;
 
+    const limits = getItemsLimit();
     const params = new URLSearchParams({
       page: state.currentPage,
-      limit: 10,
+      limit: limits.exercises,
     });
 
     if (filterType === 'Muscles') {
