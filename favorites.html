@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Favorites</title>
   <script type="module" crossorigin src="/your-energy/assets/main-7ILnCoUR.js"></script>
-  <link rel="stylesheet" crossorigin href="/your-energy/assets/styles-DFJetjzJ.css">
+  <link rel="stylesheet" crossorigin href="/your-energy/assets/styles-DOHAkQm1.css">
 </head>
 
 <body>
@@ -77,8 +77,10 @@
   <main class="main favorites-main">
     <div class="container favorites-page-container">
 
-      <div class="main-layout">
-        <aside class="sidebar">
+      <h2 class="favorites-title">Favorites</h2>
+
+      <div class="favorites-layout">
+        <aside class="sidebar favorites-sidebar">
           <div class="favorites-sidebar-wrapper">
             <section class="quote">
   <div class="quote-header">
@@ -103,6 +105,7 @@
 <div class="sidebar-img-wrapper">
   <picture>
     <source srcset="/your-energy/assets/mob_x1_02-BbGtlU1l.webp 1x, /your-energy/assets/mob_x2_02-BUhMxe0w.webp 2x" media="(max-width: 767px)">
+    <source srcset="/your-energy/assets/tab_x1-ChV8ouaN.webp 1x, /your-energy/assets/tab_x2-DpdZ4s_W.webp 2x" media="(min-width: 768px) and (max-width: 1439px)">
     <img class="sidebar-img" src="/your-energy/assets/desk_x1_06-9988pdJa.webp" srcset="./img/desk_x2_06.webp 2x" alt="Two women training" />
   </picture>
 </div>
@@ -133,12 +136,11 @@
   </div>
 </div>
 
-
             <div class="favorites-sidebar-bottom">
               <div class="daily-norm-card">
                 <div class="daily-norm-icon">
                   <svg width="20" height="20">
-                    <use href="/your-energy/assets/fluent_food-24-filled-Ah1JOhZ8.svg#icon"></use>
+                    <use href="/your-energy/assets/news-Ba5cj_9f.svg#icon-news"></use>
                   </svg>
                 </div>
                 <div class="daily-norm-text">
@@ -148,19 +150,16 @@
               </div>
 
               <div class="favorites-sidebar-image">
-                <img src="/your-energy/assets/desk_x1_03-DPU8bRcZ.webp" srcset="/your-energy/assets/Desk_x2_03-D_2CuxXb.webp 2x" alt="Active lifestyle" />
+                <picture>
+                  <source srcset="/your-energy/assets/tab_x1-ChV8ouaN.webp 1x, /your-energy/assets/tab_x2-DpdZ4s_W.webp 2x" media="(min-width: 768px)">
+                  <img src="/your-energy/assets/mob_x1_03-BDttLH_u.webp" srcset="/your-energy/assets/mob_x2_03-B3TxeGDX.webp 2x" alt="Active lifestyle" />
+                </picture>
               </div>
             </div>
           </div>
         </aside>
 
         <section class="content favorites-content">
-
-          <div class="favorites-header-mobile">
-          </div>
-
-          <h2 class="favorites-title">Favorites</h2>
-
           <ul class="favorites-list">
           </ul>
 
@@ -168,6 +167,8 @@
             It appears that you haven't added any exercises to your favorites yet.
             To get started, you can add exercises that you like to your favorites for easier access in the future.
           </div>
+
+          <div id="pagination" class="pagination"></div>
         </section>
       </div>
 
