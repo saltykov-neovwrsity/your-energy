@@ -1,13 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400..700;1,400..700&display=swap');
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
 :root {
+  --primary-color: #242424;
+  --secondary-color: #f4f4f4;
+  --white-color: #ffffff;
+  --accent-color: #eea10c;
+  --text-grey-60: rgba(36, 36, 36, 0.6);
+  --text-grey-50: rgba(36, 36, 36, 0.5);
+  --text-grey-40: rgba(36, 36, 36, 0.4);
+  --text-grey-20: rgba(36, 36, 36, 0.2);
+  --border-grey-20: rgba(36, 36, 36, 0.2);
+  --white-20: rgba(255, 255, 255, 0.2);
+
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
 
-  color: #242424;
-  background-color: rgba(255, 255, 255, 0.87);
+  color: var(--primary-color);
+  background-color: var(--white-color);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -31,10 +49,28 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+
 main {
   flex-grow: 1;
 }
 
 main:has(.back-link) {
   text-align: center;
+}
+
+.sidebar-title {
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.21;
+  letter-spacing: -0.02em;
+  color: rgba(36, 36, 36, 0.5);
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .sidebar-title {
+    font-size: 44px;
+    line-height: 1.09;
+  }
 }

@@ -20,131 +20,13 @@
     }
 }
 
-.quote {
-    padding: 20px;
-    background-color: #242424;
-    border-radius: 20px;
-    color: #f4f4f4;
-}
-
-@media screen and (min-width: 768px) {
-    .quote {
-        padding: 40px;
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+    .sidebar {
+        display: grid;
+        grid-template-columns: 400px 288px;
+        grid-template-rows: auto auto;
+        gap: 20px 16px;
+        justify-content: center;
+        align-items: start;
     }
-}
-
-.quote-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.quote-header-left {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.quote-icon-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-}
-
-.quote-card-title {
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 1.11;
-    letter-spacing: -0.02em;
-}
-
-.quote-commas {
-    fill: #f4f4f4;
-    opacity: 0.8;
-}
-
-.quote-text {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.29;
-    letter-spacing: -0.02em;
-    color: rgba(244, 244, 244, 0.6);
-    margin-bottom: 16px;
-}
-
-.quote-author {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.29;
-    letter-spacing: -0.02em;
-    color: #f4f4f4;
-}
-
-.sidebar-img-wrapper {
-    width: 100%;
-    border-radius: 20px;
-    overflow: hidden;
-}
-
-.sidebar-img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-}
-
-.info-card {
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 20px;
-    border: 1px solid rgba(36, 36, 36, 0.1);
-}
-
-@media screen and (min-width: 768px) {
-    .info-card {
-        padding: 40px;
-    }
-}
-
-.info-card-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 20px;
-}
-
-.info-card-icon-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-}
-
-.info-card-title {
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 1.11;
-    letter-spacing: -0.02em;
-    color: #242424;
-    margin-bottom: 4px;
-}
-
-.info-card-subtitle {
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 1.17;
-    letter-spacing: -0.02em;
-    color: rgba(36, 36, 36, 0.5);
-}
-
-.info-card-text {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.29;
-    letter-spacing: -0.02em;
-    color: rgba(36, 36, 36, 0.6);
 }

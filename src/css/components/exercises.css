@@ -5,6 +5,13 @@
   margin-bottom: 32px;
 }
 
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+  .exercises-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 16px;
+  }
+}
+
 @media screen and (max-width: 767px) {
   .exercises-list {
     grid-template-columns: 1fr;
@@ -15,7 +22,7 @@
 }
 
 .exercise-card {
-  background-color: #ffffff;
+  background-color: var(--white-color);
   border-radius: 15px;
   padding: 16px;
   display: flex;
@@ -38,19 +45,19 @@
 .exercise-card__badge {
   padding: 5px 8px;
   background-color: rgba(36, 36, 36, 0.05);
-  border: 1px solid rgba(36, 36, 36, 0.2);
+  border: 1px solid var(--border-grey-20);
   border-radius: 15px;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.17;
-  color: #242424;
+  color: var(--primary-color);
 }
 
 .exercise-card__rating {
   font-weight: 400;
   font-size: 12px;
   line-height: 1.5;
-  color: #242424;
+  color: var(--primary-color);
   display: flex;
   align-items: center;
   gap: 4px;
@@ -69,7 +76,7 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 1.29;
-  color: #242424;
+  color: var(--primary-color);
   cursor: pointer;
   padding: 0;
 }
@@ -83,10 +90,10 @@
   font-size: 20px;
   line-height: 1.2;
   letter-spacing: -0.02em;
-  color: #242424;
+  color: var(--primary-color);
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: overflow;
+  text-overflow: ellipsis;
   display: flex;
   align-items: center;
   gap: 16px;
@@ -97,7 +104,7 @@
   display: block;
   width: 24px;
   height: 24px;
-  background-color: #242424;
+  background-color: var(--primary-color);
   mask-image: url('../../img/icons/human.svg');
   mask-size: contain;
   mask-repeat: no-repeat;
@@ -111,13 +118,13 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 1.5;
-  color: rgba(36, 36, 36, 0.4);
+  color: var(--text-grey-40);
 }
 
 .exercise-card__info-label {
-  color: rgba(36, 36, 36, 0.4);
+  color: var(--text-grey-40);
 }
 
 .exercise-card__info-value {
-  color: #242424;
+  color: var(--primary-color);
 }

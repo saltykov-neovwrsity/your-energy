@@ -1,21 +1,27 @@
 .footer {
-  background-color: #242424;
-  color: #ffffff;
+  background-color: var(--primary-color);
+  color: var(--white-color);
   padding-top: 64px;
   padding-bottom: 24px;
   width: 100%;
 }
 
 .footer__container {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  display: flex;
+  flex-direction: column;
   gap: 40px;
-  padding-bottom: 64px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  border-bottom: none;
-  margin-bottom: 0;
-  background-color: transparent !important;
-  color: #ffffff;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(244, 244, 244, 0.2);
+}
+
+@media screen and (min-width: 768px) {
+  .footer__container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 0;
+    padding-bottom: 64px;
+    border-bottom: none;
+  }
 }
 
 .footer__brand {
@@ -34,6 +40,12 @@
   gap: 12px;
 }
 
+@media screen and (min-width: 768px) {
+  .footer__brand {
+    padding-top: 10px;
+  }
+}
+
 .social-icon {
   display: flex;
   align-items: center;
@@ -46,7 +58,7 @@
 }
 
 .social-icon:hover {
-  border-color: #FFFFFF;
+  border-color: var(--white-color);
   transform: scale(1.05);
 }
 
@@ -55,21 +67,37 @@
   height: 24px;
 }
 
-.footer__center {
+.footer__main-content {
   display: flex;
-  justify-content: center;
-  padding-top: 10px;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  .footer__main-content {
+    gap: 40px;
+  }
 }
 
 .footer__text {
   font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: 64px;
+  font-weight: 400;
+  font-size: 32px;
   line-height: 1.0;
   letter-spacing: -0.02em;
-  color: #FFFFFF;
-  max-width: 580px;
+  color: var(--white-color);
   margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .footer__text {
+    font-size: 44px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .footer__text {
+    font-size: 64px;
+  }
 }
 
 .footer__text .italic {
@@ -80,7 +108,13 @@
 .footer__subscribe {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .footer__subscribe {
+    width: 320px;
+  }
 }
 
 .footer__subtitle {
@@ -97,81 +131,73 @@
 }
 
 .subscription__input {
-  width: 320px;
-  padding: 12px 0;
-  padding-bottom: 8px;
-
+  width: 100%;
+  padding: 12px 24px;
   background: transparent;
-  border: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 0;
-
+  border: 1px solid rgba(244, 244, 244, 0.2);
+  border-radius: 30px;
   font-family: 'Inter', sans-serif;
   font-size: 14px;
-  color: #FFFFFF;
+  color: var(--white-color);
   outline: none;
 }
 
 .subscription__input::placeholder {
-  color: #FFFFFF;
-  opacity: 1;
+  color: rgba(244, 244, 244, 0.4);
 }
 
 .subscription__input:focus {
-  border-color: #FFFFFF;
+  border-color: var(--white-color);
 }
 
 .subscription__button {
-  width: 320px;
+  width: 100%;
   padding: 12px 0;
   border-radius: 30px;
   border: none;
-  background-color: #ffffff;
-  color: #242424;
+  background-color: #F4F4F4;
+  color: var(--primary-color);
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-top: 8px;
 }
 
 .subscription__button:hover {
-  background-color: #e0e0e0;
+  background-color: var(--white-color);
 }
 
 .footer__bottom-wrapper {
   padding-top: 24px;
-  background-color: transparent !important;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 40px;
+}
+
+@media screen and (min-width: 768px) {
+  .footer__bottom-wrapper {
+    padding-top: 100px;
+  }
 }
 
 .footer__bottom {
-  display: contents;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+@media screen and (min-width: 768px) {
+  .footer__bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .footer__copyright-wrapper,
 .footer__links-wrapper,
 .footer__year-wrapper {
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.4);
   letter-spacing: -0.02em;
-}
-
-.footer__links-wrapper {
-  display: flex;
-  justify-content: center;
-}
-
-.copyright {
-  margin: 0;
-}
-
-.footer__links {
-  display: flex;
-  gap: 4px;
-  align-items: center;
 }
 
 .footer__links a {
@@ -182,11 +208,6 @@
 
 .footer__links a:hover {
   color: #FFFFFF;
-}
-
-.footer__year-wrapper {
-  display: flex;
-  justify-content: flex-end;
 }
 
 .year {
