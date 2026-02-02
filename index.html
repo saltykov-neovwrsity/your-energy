@@ -9,12 +9,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script type="module" crossorigin src="/your-energy/assets/main-7ILnCoUR.js"></script>
-  <link rel="stylesheet" crossorigin href="/your-energy/assets/styles-DOHAkQm1.css">
+  <script type="module" crossorigin src="/your-energy/assets/main-BN6vNlAB.js"></script>
+  <link rel="stylesheet" crossorigin href="/your-energy/assets/main-DRI3v7Gb.css">
 </head>
 
 <body>
-  <!-- HEADER -->
   <header class="header">
   <div class="container header__container">
     <!-- LOGO (Left) -->
@@ -87,7 +86,7 @@
         <nav class="mobile-menu__nav">
             <ul class="mobile-menu__list">
                 <li class="mobile-menu__item">
-                    <a href="./index.html" class="mobile-menu__link is-active">Home</a>
+                    <a href="./index.html" class="mobile-menu__link">Home</a>
                 </li>
                 <li class="mobile-menu__item">
                     <a href="./favorites.html" class="mobile-menu__link">Favorites</a>
@@ -99,24 +98,24 @@
             <li class="socials__item">
                 <a href="https://www.facebook.com/goITclub/" target="_blank" rel="noopener noreferrer"
                     aria-label="Facebook" class="socials__link">
-                    <svg class="socials__icon" width="24" height="24">
-                        <use href="/your-energy/assets/facebook-JY0VHSAi.svg#icon"></use>
+                    <svg class="socials__icon" width="28" height="28">
+                        <use href="/your-energy/assets/facebook%20(2)-CUwreQd-.svg#icon"></use>
                     </svg>
                 </a>
             </li>
             <li class="socials__item">
                 <a href="https://www.instagram.com/goitclub/" target="_blank" rel="noopener noreferrer"
                     aria-label="Instagram" class="socials__link">
-                    <svg class="socials__icon" width="24" height="24">
-                        <use href="/your-energy/assets/instagram-BfGJA45E.svg#icon"></use>
+                    <svg class="socials__icon" width="28" height="28">
+                        <use href="/your-energy/assets/instagram%20(2)-B22aGPEZ.svg#icon"></use>
                     </svg>
                 </a>
             </li>
             <li class="socials__item">
                 <a href="https://www.youtube.com/c/GoIT" target="_blank" rel="noopener noreferrer" aria-label="YouTube"
                     class="socials__link">
-                    <svg class="socials__icon" width="24" height="24">
-                        <use href="/your-energy/assets/youtube-CBq1W7Pz.svg#icon"></use>
+                    <svg class="socials__icon" width="28" height="28">
+                        <use href="/your-energy/assets/youtube%20(2)-BSpABwpc.svg#icon"></use>
                     </svg>
                 </a>
             </li>
@@ -145,7 +144,12 @@
           <img src="/your-energy/assets/desk_x1_02-CPQ-bdvj.webp" srcset="/your-energy/assets/Desk_x2_02-uFhbwdFo.webp 2x" alt="Workout" class="hero__small-image" />
         </div>
 
-
+        <ul class="hero__tags">
+          <li class="hero__tag">#Sport</li>
+          <li class="hero__tag">#Healthy</li>
+          <li class="hero__tag">#Workout</li>
+          <li class="hero__tag">#Diet</li>
+        </ul>
       </div>
     </div>
 
@@ -157,17 +161,9 @@
         <img src="/your-energy/assets/desk_x1-B1ZaCAhL.webp" srcset="/your-energy/assets/Desk_x2-CkRuP2ZX.webp 2x" alt="Training" class="hero__main-image" />
       </picture>
     </div>
-
-    <ul class="hero__tags">
-      <li class="hero__tag">#Sport</li>
-      <li class="hero__tag">#Healthy</li>
-      <li class="hero__tag">#Workout</li>
-      <li class="hero__tag">#Diet</li>
-    </ul>
   </div>
 </section>
 
-  <!-- MAIN -->
   <main class="main">
     <div class="container exercises-page-container">
 
@@ -208,7 +204,6 @@
 </section>
 
       <div class="main-layout">
-        <!-- LEFT COLUMN -->
         <aside class="sidebar">
           <section class="quote">
   <div class="quote-header">
@@ -265,7 +260,6 @@
 </div>
         </aside>
 
-        <!-- CONTENT -->
         <section class="content">
           <div class="filters-content"></div>
           <section class="exercises">
@@ -280,7 +274,6 @@
     </div>
   </main>
 
-  <!-- MODAL -->
   <div class="modal is-hidden">
   <div class="modal__backdrop"></div>
 
@@ -288,12 +281,10 @@
     <button class="modal__close">×</button>
 
     <div class="modal__body">
-      <!-- LEFT -->
       <div class="modal__image">
         <img class="modal-gif" alt="" />
       </div>
 
-      <!-- RIGHT -->
       <div class="modal__info">
         <h2 class="modal-title"></h2>
 
@@ -307,32 +298,30 @@
         <ul class="modal__meta">
           <li>
             <span>Target</span>
-            <br>
             <strong class="modal-target"></strong>
           </li>
           <li>
             <span>Body part</span>
-            <br>
             <strong class="modal-bodypart"></strong>
           </li>
           <li>
             <span>Equipment</span>
-            <br>
             <strong class="modal-equipment"></strong>
           </li>
           <li>
             <span>Popular</span>
-            <br>
             <strong class="modal-popularity"></strong>
           </li>
-          <li>
-            <span>Burned calories</span>
-            <br>
-            <strong class="modal-calories"></strong>
-            <strong>/</strong>
-            <strong class="modal-time"></strong>
-          </li>
         </ul>
+
+        <div class="modal__calories">
+          <span>Burned calories</span>
+          <div class="modal__meta-value">
+            <strong class="modal-calories"></strong>
+            <span>/</span>
+            <strong class="modal-time"></strong>
+          </div>
+        </div>
 
         <div class="modal__divider"></div>
 
@@ -381,7 +370,6 @@
   </div>
 </div>
 
-  <!-- FOOTER -->
   <footer class="footer">
   <div class="container footer__container">
 
