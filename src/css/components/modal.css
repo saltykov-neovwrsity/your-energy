@@ -188,7 +188,9 @@
 
 @media screen and (min-width: 768px) {
   .modal__actions {
+    grid-column: 1 / -1;
     flex-direction: row;
+    justify-content: flex-end;
     margin-top: 32px;
   }
 }
