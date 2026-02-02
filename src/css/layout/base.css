@@ -1,4 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400..700;1,400..700&display=swap');
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('../../fonts/DMSans.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  font-style: italic;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('../../fonts/DMSans-Italic.ttf') format('truetype');
+}
 
 *,
 *::before,
@@ -19,7 +33,7 @@
   --border-grey-20: rgba(36, 36, 36, 0.2);
   --white-20: rgba(255, 255, 255, 0.2);
 
-  font-family: 'Inter', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -39,7 +53,7 @@ body.no-scroll {
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   display: flex;
   flex-direction: column;
   min-width: 100vw;

@@ -76,7 +76,7 @@
 }
 
 .hero__title i {
-  font-family: 'Inter', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-style: italic;
   font-weight: 500;
 }
@@ -146,6 +146,12 @@
     height: 550px;
     border-radius: 60px;
     overflow: hidden;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .hero__main-image-wrapper {
+    height: 350px;
   }
 }
 
@@ -222,6 +228,7 @@
   .hero__tags {
     justify-content: flex-end;
     max-width: 240px;
+    margin-top: 12px;
   }
 }
 

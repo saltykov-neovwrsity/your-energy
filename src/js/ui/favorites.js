@@ -11,9 +11,12 @@ export async function initFavorites() {
   const favoriteIds = getFavorites();
 
   if (favoriteIds.length === 0) {
-    showEmptyState();
+    listEl.innerHTML = '';
+    showEmptyState(true);
     return;
   }
+
+  showEmptyState(false);
 
   try {
     const promises = favoriteIds.map(id => getExerciseById(id));
@@ -24,9 +27,9 @@ export async function initFavorites() {
   }
 }
 
-function showEmptyState() {
+function showEmptyState(shouldShow) {
   if (emptyMessageEl) {
-    emptyMessageEl.style.display = 'block';
+    emptyMessageEl.style.display = shouldShow ? 'block' : 'none';
   }
 }
 
@@ -36,19 +39,15 @@ function renderFavoritesList(exercises) {
       <div class="exercise-card__header">
         <div class="exercise-card__meta">
           <span class="exercise-card__badge">WORKOUT</span>
+          <button class="favorite-btn--trash" data-id="${item._id}" aria-label="Remove">
+            <svg width="16" height="16" viewBox="0 0 20 20">
+              <use href="./img/icons/trash-01.svg#icon"></use> 
+            </svg>
+          </button>
         </div>
 
-        <button class="favorite-btn--trash" data-id="${item._id}" aria-label="Remove">
-          <svg width="16" height="16">
-            <use href="./img/icons/trash.svg#trash"></use> 
-          </svg>
-        </button>
-
         <button class="exercise-card__start start-btn" data-id="${item._id}">
-            Start
-            <svg width="14" height="14">
-              <use href="./img/icons/icon.svg#arrow"></use>
-            </svg>
+            Start <span>→</span>
         </button>
       </div>
 

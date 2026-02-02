@@ -251,8 +251,6 @@
   background: rgba(0, 0, 0, 0.45);
 }
 
-/* Removed conflicting max-width: 1199px grid override */
-
 @media screen and (min-width: 768px) {
   .filter-item {
     height: 242px;
