@@ -1,6 +1,5 @@
 .favorites-page-container {
-    padding-top: 40px;
-    padding-bottom: 80px;
+    padding: 40px 0 80px;
     background-color: #F4F4F4;
     border-radius: 0 0 30px 30px;
     min-height: 100vh;
@@ -8,8 +7,7 @@
 
 @media screen and (min-width: 768px) {
     .favorites-page-container {
-        padding-top: 64px;
-        padding-bottom: 128px;
+        padding: 64px 0 128px;
     }
 }
 
@@ -130,10 +128,6 @@
     display: block;
 }
 
-.favorites-content {
-    padding-top: 0;
-}
-
 .favorites-title {
     font-size: 28px;
     font-weight: 400;
@@ -208,7 +202,6 @@
 
 @media screen and (min-width: 768px) {
     .favorites-empty-message {
-        font-size: 18px;
         max-width: 500px;
         margin: 60px auto;
     }

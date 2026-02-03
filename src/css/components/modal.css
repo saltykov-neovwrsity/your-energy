@@ -35,7 +35,6 @@
   .modal__content {
     max-width: 708px;
     padding: 40px;
-    max-height: 95vh;
   }
 }
 
@@ -71,7 +70,6 @@
   .modal__body {
     display: grid;
     grid-template-columns: 295px 1fr;
-    gap: 32px;
     align-items: flex-start;
   }
 }

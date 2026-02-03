@@ -6,13 +6,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 32px;
+  padding: 20px;
   background-color: var(--secondary-color);
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 768px) {
   .header__container {
-    padding: 20px;
+    padding: 32px;
+    position: relative;
   }
 }
 
@@ -33,14 +34,18 @@
   .header__socials-desktop {
     display: block;
   }
-}
 
-/* Socials are now handled in the 768px media query above */
+  .header__nav--desktop {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
 
 .header__nav-list {
   display: flex;
   gap: 8px;
-  padding: 8px 49px 8px 49px;
+  padding: 8px 49px;
   background-color: var(--primary-color);
   border-radius: 60px;
   list-style: none;
@@ -70,18 +75,6 @@
 .header__nav-link:hover,
 .header__nav-link:focus {
   opacity: 1;
-}
-
-@media screen and (min-width: 768px) {
-  .header__container {
-    position: relative;
-  }
-
-  .header__nav--desktop {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-  }
 }
 
 .header__burger {

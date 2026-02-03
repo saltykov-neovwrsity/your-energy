@@ -21,11 +21,9 @@
   position: relative;
   width: 430px;
   height: 412px;
-
   background-color: #242424;
   border-radius: 20px;
   padding: 32px;
-
   display: flex;
   flex-direction: column;
 }
@@ -34,7 +32,6 @@
   position: absolute;
   top: 18px;
   right: 18px;
-
   background: transparent;
   border: none;
   color: #fff;
@@ -79,9 +76,9 @@
   border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 999px;
   padding: 14px 20px;
-
   font-size: 14px;
   color: #fff;
+  box-sizing: border-box;
 }
 
 .rating-modal__textarea {
@@ -98,9 +95,4 @@
   padding: 14px;
   font-size: 14px;
   cursor: pointer;
-}
-
-.rating-modal__input,
-.rating-modal__textarea {
-  box-sizing: border-box;
 }

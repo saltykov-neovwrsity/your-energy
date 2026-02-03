@@ -4,10 +4,10 @@
 
 @media screen and (min-width: 768px) {
   .sidebar-title {
+    display: block;
     font-size: 44px;
     line-height: 1.09;
     margin-bottom: 20px;
-    display: block;
   }
 }
 
@@ -54,7 +54,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
 }
 
 .quote-header-left {
@@ -87,7 +86,7 @@
 }
 
 .quote-content {
-  padding-left: 0;
+  padding-left: 42px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -112,7 +111,7 @@
 
 .quote-author {
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.25;
   letter-spacing: -0.02em;
   color: var(--secondary-color);
@@ -192,14 +191,39 @@
   color: var(--text-grey-50);
 }
 
-.info-card-content {
-  padding-left: 0;
-}
-
 .info-card-text {
   font-weight: 400;
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.02em;
   color: var(--text-grey-60);
+}
+
+.info-card-text .text-tablet,
+.info-card-text .text-desktop {
+  display: none;
+}
+
+.info-card-text .text-mobile {
+  display: inline;
+}
+
+@media screen and (min-width: 768px) {
+  .info-card-text .text-mobile {
+    display: none;
+  }
+
+  .info-card-text .text-tablet {
+    display: inline;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .info-card-text .text-tablet {
+    display: none;
+  }
+
+  .info-card-text .text-desktop {
+    display: inline;
+  }
 }

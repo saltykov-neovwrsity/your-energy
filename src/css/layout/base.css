@@ -20,7 +20,6 @@
   box-sizing: border-box;
 }
 
-
 :root {
   --primary-color: #242424;
   --secondary-color: #f4f4f4;
@@ -48,22 +47,17 @@
   -webkit-text-size-adjust: 100%;
 }
 
-body.no-scroll {
-  overflow: hidden;
-}
-
 body {
-  font-family: 'DM Sans', sans-serif;
   display: flex;
   flex-direction: column;
   min-width: 100vw;
   min-height: 100vh;
   margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-
+body.no-scroll {
+  overflow: hidden;
+}
 
 main {
   flex-grow: 1;

@@ -64,12 +64,12 @@
 
 .exercises-page-container {
   background-color: #F4F4F4;
-  padding: 40px 20px 80px;
+  padding: 0 20px 80px;
 }
 
 @media screen and (min-width: 768px) {
   .exercises-page-container {
-    padding: 64px 32px 130px;
+    padding: 0 32px 64px;
   }
 }
 
