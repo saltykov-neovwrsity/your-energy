@@ -96,4 +96,4 @@
       </p>
     </li>
   `).join("");v.innerHTML=t,document.querySelectorAll(".favorite-btn--trash").forEach(r=>{r.addEventListener("click",Ee)})}async function Ee(e){const t=e.target.closest(".favorite-btn--trash");if(!t)return;const r=t.dataset.id;H(r),await W()}document.querySelector(".favorites-list")&&W();const g=window.location.pathname,$e=document.querySelectorAll(".header__nav-link, .mobile-menu__link");$e.forEach(e=>{const t=e.getAttribute("href"),r=t==="./index.html"||t==="index.html"||t==="/",o=g==="/"||g.endsWith("index.html")||g==="";r&&o||!r&&g.endsWith(t.replace("./",""))?e.classList.add("is-active"):e.classList.remove("is-active")});
-//# sourceMappingURL=main-DydpY4mO.js.map
+//# sourceMappingURL=main-D4gA4pxd.js.map
