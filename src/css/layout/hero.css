@@ -234,3 +234,25 @@
     font-size: 16px;
   }
 }
+
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+  .hero__top {
+    display: contents;
+  }
+
+  .hero__content {
+    order: 1;
+  }
+
+  .hero__main-image-wrapper {
+    order: 2;
+  }
+
+  .hero__aside {
+    order: 3;
+  }
+
+  .hero__tags {
+    justify-content: flex-end;
+  }
+}

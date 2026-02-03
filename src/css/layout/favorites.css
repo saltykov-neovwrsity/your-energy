@@ -75,7 +75,7 @@
 .daily-norm-icon {
     width: 32px;
     height: 32px;
-    background-color: #242424;
+    background-color: #FFFFFF;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -208,7 +208,64 @@
 }
 
 @media screen and (min-width: 1440px) {
+    .favorites-layout {
+        flex-direction: row;
+        gap: 32px;
+        align-items: flex-start;
+    }
+
     .favorites-sidebar {
         width: 444px;
+        flex-shrink: 0;
+    }
+
+    .favorites-sidebar-bottom {
+        flex-direction: row;
+        gap: 16px;
+    }
+
+    .favorites-page-container .daily-norm-card {
+        width: auto;
+        flex: 1;
+    }
+
+    .favorites-page-container .favorites-sidebar-image {
+        width: auto;
+        flex: 1;
+        height: auto;
+        min-height: 110px;
+    }
+
+    .favorites-page-container .quote {
+        width: 100% !important;
+        max-width: none;
+    }
+
+    .favorites-content {
+        flex-grow: 1;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+    .favorites-page-container .quote {
+        width: 100% !important;
+        height: auto;
+        max-width: none;
+    }
+
+    .favorites-sidebar-bottom {
+        flex-direction: row;
+        gap: 16px;
+    }
+
+    .favorites-page-container .daily-norm-card {
+        width: auto;
+        flex: 1;
+    }
+
+    .favorites-page-container .favorites-sidebar-image {
+        width: 344px;
+        height: 141px;
+        flex: none;
     }
 }

@@ -5,7 +5,6 @@
   margin-bottom: 40px;
 }
 
-/* Tablet + Desktop */
 @media screen and (min-width: 768px) {
   .exercises-list {
     grid-template-columns: repeat(2, 1fr);
@@ -97,11 +96,12 @@
   display: block;
   width: 24px;
   height: 24px;
-  background-color: var(--primary-color);
-  mask-image: url('../../img/icons/human.svg');
-  mask-size: contain;
-  mask-repeat: no-repeat;
-  mask-position: center;
+  background-color: #242424;
+  border-radius: 50%;
+  background-image: url('../../img/icons/human.svg');
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .exercise-card__info {

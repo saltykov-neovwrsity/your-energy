@@ -52,12 +52,9 @@ function renderFavoritesList(exercises) {
       </div>
 
       <div class="exercise-card__title-row">
-        <div class="exercise-icon-wrapper">
-             <svg width="24" height="24">
-                <use href="./img/icons/human.svg#icon-human"></use>
-            </svg>
+        <div class="exercise-card__title">
+           ${capitalizeFirstLetter(item.name)}
         </div>
-        <h3 class="exercise-card__title">${capitalizeFirstLetter(item.name)}</h3>
       </div>
 
       <p class="exercise-card__info">

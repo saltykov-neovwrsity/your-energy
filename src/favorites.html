@@ -20,7 +20,7 @@
       <h2 class="favorites-title">Favorites</h2>
 
       <div class="favorites-layout">
-        <aside class="sidebar favorites-sidebar">
+        <div class="favorites-sidebar">
           <div class="favorites-sidebar-wrapper">
             <load src="./partials/quote.html" />
 
@@ -28,7 +28,7 @@
               <div class="daily-norm-card">
                 <div class="daily-norm-icon">
                   <svg width="20" height="20">
-                    <use href="./img/icons/news.svg#icon-news"></use>
+                    <use href="./img/icons/Vector.svg#icon-vector"></use>
                   </svg>
                 </div>
                 <div class="daily-norm-text">
@@ -39,15 +39,15 @@
 
               <div class="favorites-sidebar-image">
                 <picture>
-                  <source srcset="./img/tab_x1.webp 1x, ./img/tab_x2.webp 2x" media="(min-width: 768px)">
+                  <source srcset="./img/tab_x1_05.webp 1x, ./img/tab_x2_05.webp 2x" media="(min-width: 768px)">
                   <img src="./img/mob_x1_03.webp" srcset="./img/mob_x2_03.webp 2x" alt="Active lifestyle" />
                 </picture>
               </div>
             </div>
           </div>
-        </aside>
+        </div>
 
-        <section class="content favorites-content">
+        <div class="favorites-content">
           <ul class="favorites-list">
           </ul>
 
@@ -57,7 +57,7 @@
           </div>
 
           <div id="pagination" class="pagination"></div>
-        </section>
+        </div>
       </div>
 
     </div>
@@ -65,7 +65,7 @@
 
   <load src="./partials/modal-exercise.html" />
 
-  <load src="./partials/footer.html" />
+
 
   <script type="module" src="./main.js"></script>
 </body>

@@ -31,6 +31,13 @@
   }
 }
 
+@media screen and (min-width: 1440px) {
+  .exercises-title {
+    white-space: nowrap;
+  }
+}
+
+
 .subcategory-span {
   color: var(--text-grey-50);
 }
@@ -222,4 +229,24 @@
 
 .filter-item:hover .filter-item__overlay {
   background: rgba(0, 0, 0, 0.45);
+}
+
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+  .filters-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .filters-controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .search-form {
+    order: -1;
+  }
 }

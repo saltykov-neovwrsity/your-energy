@@ -116,6 +116,20 @@
   margin-bottom: 16px;
 }
 
+.modal__stars {
+  display: flex;
+  gap: 2px;
+}
+
+.modal__star {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.modal__star.is-active {
+  color: #EEA10C;
+}
+
 .modal-rating {
   font-size: 14px;
   font-weight: 500;
